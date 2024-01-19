@@ -1,10 +1,12 @@
-<h1>Editing municipe</h1>
+<div class="flex flex-col">
+  <h1>Editando cidadão</h1>
 
-<%= render "form", municipe: @municipe %>
+  <%= render "form", municipe: @municipe %>
 
-<br>
+  <br>
 
-<div>
-  <%= link_to "Show this municipe", @municipe %> |
-  <%= link_to "Back to municipes", municipes_path %>
+  <div>
+    <%= link_to "Mostrar esse cidadão", @municipe %> |
+    <%= link_to "Voltar para cidadãos", municipes_path %>
+  </div>
 </div>

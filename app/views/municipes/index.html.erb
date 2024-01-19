@@ -1,12 +1,13 @@
 <div class="flex-column">
   <p style="color: green"><%= notice %></p>
 
-  <h1 class="block">Municipes</h1>
+  <h1 class="block">Cidadãos</h1>
 
   <div class="overflow-x-auto">
     <table class="min-w-full bg-white border border-gray-300">
       <thead>
       <tr>
+        <th class="py-2 px-4 border-b">Foto</th>
         <th class="py-2 px-4 border-b">Full Name</th>
         <th class="py-2 px-4 border-b">CPF</th>
         <th class="py-2 px-4 border-b">CNS</th>
@@ -14,6 +15,7 @@
         <th class="py-2 px-4 border-b">Birth Date</th>
         <th class="py-2 px-4 border-b">Phone Number</th>
         <th class="py-2 px-4 border-b">Status</th>
+        <th class="py-2 px-4 border-b">Ações</th>
       </tr>
       </thead>
       <tbody>
@@ -22,5 +24,5 @@
     </table>
   </div>
 
-  <%= link_to "New municipe", new_municipe_path %>
+  <%= link_to "Cadastrar novo cidadão", new_municipe_path %>
 </div>
