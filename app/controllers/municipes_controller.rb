@@ -15,7 +15,7 @@ class MunicipesController < ApplicationController
     @municipe = Municipe.new(municipe_params)
 
     if @municipe.save
-      redirect_to @municipe, notice: 'Cidadão criado com sucesso.'
+      redirect_to @municipe, notice: t('.create')
     else
       render :new
     end
@@ -25,7 +25,7 @@ class MunicipesController < ApplicationController
 
   def update
     if @municipe.update(municipe_params)
-      redirect_to @municipe, notice: 'Cidadão atualizado com sucesso.'
+      redirect_to @municipe, notice: t('.update')
     else
       render :edit
     end

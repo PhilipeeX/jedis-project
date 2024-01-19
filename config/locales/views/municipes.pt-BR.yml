@@ -1,0 +1,21 @@
+pt-BR:
+  municipes:
+    index:
+      title: 'Cidadãos'
+      actions: 'Ações'
+      add_municipe: 'Cadastrar cidadão'
+    edit:
+      title: 'Editando cidadão'
+      show: 'Mostrar'
+      back: 'Voltar'
+    municipe:
+      show: 'Mostrar'
+      edit: 'Editar'
+    new:
+      title: 'Cadastrando cidadão'
+      back: 'Voltar para cidadãos'
+    show:
+      title: 'Mostrando cidadão'
+      back: 'Voltar para cidadãos'
+    form:
+      save: 'Salvar'

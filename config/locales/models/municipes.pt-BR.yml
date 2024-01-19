@@ -1,0 +1,14 @@
+pt-BR:
+  activerecord:
+    models:
+      municipe:
+        one: 'Cidadão'
+        other: 'Cidadãos'
+    attributes:
+      municipe:
+        photo: 'Foto'
+        full_name: 'Nome completo'
+        birth_date: 'Data de nascimento'
+        phone_number: 'Telefone'
+        created_at: 'Criado em'
+        updated_at: 'Atualizado em'

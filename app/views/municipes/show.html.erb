@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 <div class="flex flex-col">
-  <h1>Mostrando cidadão</h1>
+  <h1><%= t('.title') %></h1>
   <%= render @municipe %>
-  <%= link_to 'Voltar para cidadãos', municipes_path %>
+  <%= link_to t('.back'), municipes_path %>
 </div>
