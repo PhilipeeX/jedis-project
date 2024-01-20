@@ -1,0 +1,14 @@
+<tr id="<%= dom_id municipe %>" class="<%= cycle('bg-gray-100', 'bg-gray-200') %>">
+  <td><%= image_tag municipe.photo if municipe.photo.attached? %></td>
+  <td class="py-2 px-4 border-b"><%= municipe.full_name %></td>
+  <td class="py-2 px-4 border-b"><%= municipe.cpf %></td>
+  <td class="py-2 px-4 border-b"><%= municipe.cns %></td>
+  <td class="py-2 px-4 border-b"><%= municipe.email %></td>
+  <td class="py-2 px-4 border-b"><%= municipe.birth_date %></td>
+  <td class="py-2 px-4 border-b"><%= municipe.phone_number %></td>
+  <td class="py-2 px-4 border-b"><%= t("activerecord.attributes.municipe.status.#{municipe.status}") %></td>
+  <td class="py-2 px-4 border-b">
+    <%= link_to t('.show'), municipe, class: 'hover:underline' %>
+    <%= link_to t('.edit'), edit_municipe_path(municipe), class: 'hover:underline' %>
+  </td>
+</tr>
