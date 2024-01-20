@@ -12,9 +12,9 @@ RSpec.describe MunicipesController, type: :controller do
 
   describe 'POST #create' do
     it 'creates a new municipe' do
-      expect {
+      expect do
         post :create, params: { municipe: attributes_for(:municipe) }
-      }.to change(Municipe, :count).by(1)
+      end.to change(Municipe, :count).by(1)
     end
 
     it 'redirects to the show page on success' do
