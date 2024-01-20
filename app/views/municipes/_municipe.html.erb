@@ -6,7 +6,7 @@
   <td class="py-2 px-4 border-b"><%= municipe.email %></td>
   <td class="py-2 px-4 border-b"><%= municipe.birth_date %></td>
   <td class="py-2 px-4 border-b"><%= municipe.phone_number %></td>
-  <td class="py-2 px-4 border-b"><%= municipe.status %></td>
+  <td class="py-2 px-4 border-b"><%= t("activerecord.attributes.municipe.status.#{municipe.status}") %></td>
   <td class="py-2 px-4 border-b">
     <%= link_to t('.show'), municipe, class: 'hover:underline' %>
     <%= link_to t('.edit'), edit_municipe_path(municipe), class: 'hover:underline' %>

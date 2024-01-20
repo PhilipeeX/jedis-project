@@ -35,8 +35,8 @@
   </div>
 
   <div>
-    <%= form.label :status, style: "display: block" %>
-    <%= form.number_field :status %>
+    <%= form.label :status, 'Status', style: "display: block" %>
+    <%= form.select :status, Municipe.statuses.keys.map { |s| [I18n.t("activerecord.attributes.municipe.status.#{s}"), s] } %>
   </div>
 
   <div>

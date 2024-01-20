@@ -10,5 +10,8 @@ pt-BR:
         full_name: 'Nome completo'
         birth_date: 'Data de nascimento'
         phone_number: 'Telefone'
+        status:
+          active: 'Ativo'
+          inactive: 'Inativo'
         created_at: 'Criado em'
         updated_at: 'Atualizado em'
