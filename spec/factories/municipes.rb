@@ -11,6 +11,6 @@ FactoryBot.define do
       random_image_file = Dir.glob(Rails.root.join('spec/fixtures/images/profiles/*.jpg').to_s).sample
       municipe.photo.attach(io: File.open(random_image_file), filename: 'profile.jpg')
     end
-    status { rand(0..1) }
+    status { %i[active inactive].sample }
   end
 end
