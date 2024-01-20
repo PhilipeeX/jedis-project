@@ -4,6 +4,7 @@ pt-BR:
       title: 'Cidadãos'
       actions: 'Ações'
       add_municipe: 'Cadastrar cidadão'
+      status: 'Status'
     edit:
       title: 'Editando cidadão'
       show: 'Mostrar'
