@@ -3,6 +3,7 @@ class Municipe < ApplicationRecord
   has_one_attached :photo
 
   validates :cpf, cpf: true
+  validates :cns, cns: true
 
   validates :full_name, :cpf, :cns, :email, :birth_date, :phone_number, :photo, :status, presence: true
 end
