@@ -4,6 +4,17 @@ pt-BR:
       municipe:
         one: 'Cidadão'
         other: 'Cidadãos'
+    errors:
+      models:
+        municipe:
+          invalid_cpf: 'precisa ser válido'
+      header:
+        one: 'Erro'
+        other: 'Erros'
+      prohibited:
+        one: 'impediu'
+        other: 'impediram'
+      body: 'as informações desse cidadão serem salvas.'
     attributes:
       municipe:
         photo: 'Foto'
