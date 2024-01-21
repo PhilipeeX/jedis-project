@@ -1,16 +1,16 @@
 require 'rails_helper'
 
-class Validatable
+class CpfValidatable
   include ActiveModel::Model
   attr_accessor :cpf
 
   validates :cpf, cpf: true
 end
 
-RSpec.describe CpfValidator, as: :validator do
+RSpec.describe CpfValidator, type: :validator do
   subject(:validator) { described_class.new(attributes: [:cpf]) }
 
-  let(:model) { Validatable.new }
+  let(:model) { CpfValidatable.new }
 
   context 'when CPF is valid' do
     valid_cpfs = %w[441.778.037-40 501.693.187-96]
