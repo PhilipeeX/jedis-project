@@ -13,16 +13,24 @@ RSpec.describe CpfValidator, as: :validator do
   let(:model) { Validatable.new }
 
   context 'when CPF is valid' do
-    it 'is valid' do
-      model.cpf = '441.778.037-40'
-      expect(model).to be_valid
+    valid_cpfs = %w[441.778.037-40 501.693.187-96]
+
+    valid_cpfs.each do |cpf|
+      it "is valid for CPF: #{cpf}" do
+        model.cpf = cpf
+        expect(model).to be_valid
+      end
     end
   end
 
   context 'when CPF is invalid' do
-    it 'is not valid' do
-      model.cpf = '123.456.789-01'
-      expect(model).not_to be_valid
+    invalid_cpfs = %w[123.456.789-01 502.693.187-96]
+
+    invalid_cpfs.each do |cpf|
+      it "is not valid for CPF: #{cpf}" do
+        model.cpf = cpf
+        expect(model).not_to be_valid
+      end
     end
   end
 end
