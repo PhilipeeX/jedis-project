@@ -17,7 +17,7 @@ class MunicipesController < ApplicationController
     if @municipe.save
       redirect_to @municipe, notice: t('.create')
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -27,7 +27,7 @@ class MunicipesController < ApplicationController
     if @municipe.update(municipe_params)
       redirect_to @municipe, notice: t('.update')
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
