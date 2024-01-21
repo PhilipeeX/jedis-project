@@ -7,7 +7,8 @@ pt-BR:
     errors:
       models:
         municipe:
-          invalid_cpf: 'precisa ser válido'
+          invalid_cpf: 'não é um cpf válido'
+          invalid_cns: 'não é um cns válido'
       header:
         one: 'Erro'
         other: 'Erros'

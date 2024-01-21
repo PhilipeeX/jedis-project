@@ -3,6 +3,5 @@ pt-BR:
     errors:
       models:
         validatable:
-          attributes:
-            cpf:
-              invalid_cpf: "CPF inválido"
+              invalid_cpf: 'CPF inválido'
+              invalid_cns: 'CNS inválido'
