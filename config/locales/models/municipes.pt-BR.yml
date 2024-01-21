@@ -25,6 +25,7 @@ pt-BR:
         cpf: 'CPF'
         cns: 'CNS'
         email: 'E-mail'
+        email_confirmation: 'Confirmação de E-mail'
         status:
           active: 'Ativo'
           inactive: 'Inativo'

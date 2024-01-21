@@ -3,5 +3,6 @@ pt-BR:
     errors:
       models:
         validatable:
-              invalid_cpf: 'CPF inválido'
-              invalid_cns: 'CNS inválido'
+              invalid_cpf: 'não é um CPF válido'
+              invalid_cns: 'não é um CNS válido'
+              invalid_email: "não é um endereço de e-mail válido"
