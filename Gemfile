@@ -17,6 +17,7 @@ gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
+  gem 'database_cleaner', '~> 2.0', '>= 2.0.2'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot', '~> 6.4', '>= 6.4.5'
   gem 'factory_bot_rails', '~> 6.2'
