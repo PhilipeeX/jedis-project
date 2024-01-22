@@ -4,6 +4,7 @@ if Rails.env.development?
                                       cpf: '032.063.460-45',
                                       cns: '274892941220002',
                                       email: 'giovanni_rj@outlook.com',
+                                      email_confirmation: 'giovanni_rj@outlook.com',
                                       birth_date: Date.strptime('23/11/1988', '%d/%m/%Y'),
                                       phone_number: '5521929597661',
                                       status: rand(0..1)) do |municipe|
@@ -13,6 +14,7 @@ if Rails.env.development?
                                       cpf: '159.418.450-06',
                                       cns: '165570383740009',
                                       email: 'Victoria_ux@gmail.com',
+                                      email_confirmation: 'Victoria_ux@gmail.com',
                                       birth_date: Date.strptime('09/01/1992', '%d/%m/%Y'),
                                       phone_number: '5546989151067',
                                       status: rand(0..1)) do |municipe|
