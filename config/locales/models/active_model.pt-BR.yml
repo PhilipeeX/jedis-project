@@ -1,0 +1,9 @@
+pt-BR:
+  activemodel:
+    errors:
+      models:
+        validatable:
+              invalid_cpf: 'não é um CPF válido'
+              invalid_cns: 'não é um CNS válido'
+              invalid_email: 'não é um endereço de e-mail válido'
+              invalid_birth_date: 'não é uma data de nascimento válida'

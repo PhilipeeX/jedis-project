@@ -17,7 +17,7 @@ class MunicipesController < ApplicationController
     if @municipe.save
       redirect_to @municipe, notice: t('.create')
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -27,7 +27,7 @@ class MunicipesController < ApplicationController
     if @municipe.update(municipe_params)
       redirect_to @municipe, notice: t('.update')
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -38,6 +38,7 @@ class MunicipesController < ApplicationController
   end
 
   def municipe_params
-    params.require(:municipe).permit(:full_name, :cpf, :cns, :email, :birth_date, :phone_number, :photo, :status)
+    params.require(:municipe).permit(:full_name, :cpf, :cns, :email, :email_confirmation, :birth_date, :phone_number,
+                                     :photo, :status)
   end
 end

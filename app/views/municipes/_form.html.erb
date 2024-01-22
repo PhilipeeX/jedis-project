@@ -1,5 +1,16 @@
 <%= form_with(model: municipe, local: true, html: { multipart: true }) do |form| %>
 
+  <% if municipe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= "#{pluralize(municipe.errors.count, t('activerecord.errors.header.one'), t('activerecord.errors.header.other'))} #{pluralize(municipe.errors.count, t('activerecord.errors.prohibited.one'), t('activerecord.errors.prohibited.other'))} #{t('activerecord.errors.body')}" %></h2>
+      <ul>
+        <% municipe.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div>
     <%= form.label :photo, style: "display: block" %>
     <%= form.file_field :photo %>
@@ -11,7 +22,7 @@
 
   <div>
     <%= form.label :cpf, style: "display: block" %>
-    <%= form.text_field :cpf %>
+    <%= form.text_field :cpf, placeholder: '000.000.000-00', maxlength: 14 %>
   </div>
 
   <div>
@@ -22,6 +33,11 @@
   <div>
     <%= form.label :email, style: "display: block" %>
     <%= form.text_field :email %>
+  </div>
+
+  <div>
+    <%= form.label :email_confirmation, style: "display: block" %>
+    <%= form.text_field :email_confirmation %>
   </div>
 
   <div>
