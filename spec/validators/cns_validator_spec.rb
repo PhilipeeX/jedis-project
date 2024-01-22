@@ -7,7 +7,7 @@ class CnsValidatable
   validates :cns, cns: true
 end
 
-RSpec.describe CnsValidator, type: :validator do
+RSpec.describe CnsValidator do
   subject(:validator) { described_class.new(attributes: [:cns]) }
   let(:model) { CnsValidatable.new }
 

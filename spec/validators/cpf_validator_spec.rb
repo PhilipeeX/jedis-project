@@ -7,7 +7,7 @@ class CpfValidatable
   validates :cpf, cpf: true
 end
 
-RSpec.describe CpfValidator, type: :validator do
+RSpec.describe CpfValidator do
   subject(:validator) { described_class.new(attributes: [:cpf]) }
 
   let(:model) { CpfValidatable.new }
