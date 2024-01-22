@@ -9,6 +9,7 @@ pt-BR:
         municipe:
           invalid_cpf: 'não é um cpf válido'
           invalid_cns: 'não é um cns válido'
+          invalid_email: 'não é um email válido'
       header:
         one: 'Erro'
         other: 'Erros'
