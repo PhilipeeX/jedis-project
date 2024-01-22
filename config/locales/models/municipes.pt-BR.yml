@@ -1,0 +1,35 @@
+pt-BR:
+  activerecord:
+    models:
+      municipe:
+        one: 'Cidadão'
+        other: 'Cidadãos'
+    errors:
+      models:
+        municipe:
+          invalid_cpf: 'não é um cpf válido'
+          invalid_cns: 'não é um cns válido'
+          invalid_email: 'não é um email válido'
+          invalid_birth_date: 'não é uma data de nascimento válida'
+      header:
+        one: 'Erro'
+        other: 'Erros'
+      prohibited:
+        one: 'impediu'
+        other: 'impediram'
+      body: 'as informações desse cidadão serem salvas.'
+    attributes:
+      municipe:
+        photo: 'Foto'
+        full_name: 'Nome completo'
+        birth_date: 'Data de nascimento'
+        phone_number: 'Telefone'
+        cpf: 'CPF'
+        cns: 'CNS'
+        email: 'E-mail'
+        email_confirmation: 'Confirmação de E-mail'
+        status:
+          active: 'Ativo'
+          inactive: 'Inativo'
+        created_at: 'Criado em'
+        updated_at: 'Atualizado em'
