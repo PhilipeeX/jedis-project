@@ -8,6 +8,8 @@ class CpfValidator < ActiveModel::EachValidator
   private
 
   def cpf_valid?(cpf)
+    return false if cpf.nil?
+
     digits = cpf.scan(/[0-9]/).map(&:to_i)
 
     return false unless digits.length == 11
