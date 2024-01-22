@@ -4,6 +4,7 @@ class Municipe < ApplicationRecord
 
   validates :cpf, cpf: true
   validates :cns, cns: true
+  validates :birth_date, birth_date: true
   validates :email, confirmation: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :email, confirmation: { case_sensitive: false }
 
