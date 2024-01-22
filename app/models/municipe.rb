@@ -1,4 +1,5 @@
 class Municipe < ApplicationRecord
+  has_one :municipe, dependent: :destroy
   enum status: { active: 0, inactive: 1 }
   has_one_attached :photo
 
