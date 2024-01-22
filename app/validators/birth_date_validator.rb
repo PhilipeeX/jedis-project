@@ -8,7 +8,7 @@ class BirthDateValidator < ActiveModel::EachValidator
   private
 
   def birth_date_valid?(birth_date)
-    return false if birth_date > Date.current || Date.current.year - birth_date.year > 116
+    return false if birth_date.nil? || birth_date > Date.current || Date.current.year - birth_date.year > 116
 
     true
   end

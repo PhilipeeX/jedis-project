@@ -68,7 +68,6 @@ RSpec.describe MunicipesController, type: :controller do
       expect(response).to render_template(:edit)
       expect(response).to have_http_status(:unprocessable_entity)
     end
-
   end
 
   describe 'GET #show' do
