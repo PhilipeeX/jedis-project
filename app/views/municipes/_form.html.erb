@@ -10,51 +10,85 @@
       </ul>
     </div>
   <% end %>
+  <div class="flex">
+    <div>
+      <div>
+        <%= form.label :photo, style: "display: block" %>
+        <%= form.file_field :photo %>
+      </div>
+      <div>
+        <%= form.label :full_name, style: "display: block" %>
+        <%= form.text_field :full_name %>
+      </div>
 
-  <div>
-    <%= form.label :photo, style: "display: block" %>
-    <%= form.file_field :photo %>
-  </div>
-  <div>
-    <%= form.label :full_name, style: "display: block" %>
-    <%= form.text_field :full_name %>
-  </div>
+      <div>
+        <%= form.label :cpf, style: "display: block" %>
+        <%= form.text_field :cpf, placeholder: 'Ex.:000.000.000-00', maxlength: 14 %>
+      </div>
 
-  <div>
-    <%= form.label :cpf, style: "display: block" %>
-    <%= form.text_field :cpf, placeholder: '000.000.000-00', maxlength: 14 %>
-  </div>
+      <div>
+        <%= form.label :cns, style: "display: block" %>
+        <%= form.text_field :cns %>
+      </div>
 
-  <div>
-    <%= form.label :cns, style: "display: block" %>
-    <%= form.text_field :cns %>
-  </div>
+      <div>
+        <%= form.label :email, style: "display: block" %>
+        <%= form.text_field :email, placeholder: 'Ex.:example@domain.com' %>
+      </div>
 
-  <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
-  </div>
+      <div>
+        <%= form.label :email_confirmation, style: "display: block" %>
+        <%= form.text_field :email_confirmation, placeholder: 'Ex.:example@domain.com' %>
+      </div>
 
-  <div>
-    <%= form.label :email_confirmation, style: "display: block" %>
-    <%= form.text_field :email_confirmation %>
-  </div>
+      <div>
+        <%= form.label :birth_date, style: "display: block" %>
+        <%= form.date_field :birth_date %>
+      </div>
 
-  <div>
-    <%= form.label :birth_date, style: "display: block" %>
-    <%= form.date_field :birth_date %>
-  </div>
+      <div>
+        <%= form.label :phone_number, style: "display: block" %>
+        <%= form.text_field :phone_number, placeholder: 'Ex.:21966047999' %>
+      </div>
 
-  <div>
-    <%= form.label :phone_number, style: "display: block" %>
-    <%= form.text_field :phone_number %>
+      <div>
+        <%= form.label :status, 'Status', style: "display: block" %>
+        <%= form.select :status, Municipe.statuses.keys.map { |s| [I18n.t("activerecord.attributes.municipe.status.#{s}"), s] } %>
+      </div>
+    </div>
+    <div>
+      <%= form.fields_for :address do |address_form| %>
+        <div>
+          <%= address_form.label :cep, style: "display: block" %>
+          <%= address_form.text_field :cep %>
+        </div>
+        <div>
+          <%= address_form.label :street, style: "display: block" %>
+          <%= address_form.text_field :street %>
+        </div>
+        <div>
+          <%= address_form.label :complement, style: "display: block" %>
+          <%= address_form.text_field :complement %>
+        </div>
+        <div>
+          <%= address_form.label :neighborhood, style: "display: block" %>
+          <%= address_form.text_field :neighborhood %>
+        </div>
+        <div>
+          <%= address_form.label :city, style: "display: block" %>
+          <%= address_form.text_field :city %>
+        </div>
+        <div>
+          <%= address_form.label :state, style: "display: block" %>
+          <%= address_form.text_field :state %>
+        </div>
+        <div>
+          <%= address_form.label :ibge_code, style: "display: block" %>
+          <%= address_form.text_field :ibge_code %>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <div>
-    <%= form.label :status, 'Status', style: "display: block" %>
-    <%= form.select :status, Municipe.statuses.keys.map { |s| [I18n.t("activerecord.attributes.municipe.status.#{s}"), s] } %>
-  </div>
-
   <div>
     <%= form.submit t('.save') %>
   </div>

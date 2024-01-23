@@ -1,6 +1,54 @@
-<p style="color: green"><%= notice %></p>
-<div class="flex flex-col">
-  <h1><%= t('.title') %></h1>
-  <%= render @municipe %>
-  <%= link_to t('.back'), municipes_path %>
+
+<div class="h-full p-8">
+  <div class="bg-white rounded-lg shadow-xl pb-8">
+    <div class="w-full h-[250px]">
+      <%#=# TODO: Alterar imagem conforme status %>
+      <img src="https://vojislavd.com/ta-template-demo/assets/img/profile-background.jpg" class="w-full h-full rounded-tl-lg rounded-tr-lg">
+    </div>
+    <div class="flex flex-col items-center -mt-20">
+      <%= image_tag @municipe.photo, class: 'w-40 border-4 border-white rounded-full' if @municipe.photo.attached? %>
+      <div class="flex items-center space-x-2 mt-2">
+        <p class="text-2xl"><%= @municipe.full_name %></p>
+        <span class="bg-blue-500 rounded-full p-1" title="Verified">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="text-gray-100 h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </span>
+      </div>
+      <p class="text-gray-700"><%= @municipe.email %></p>
+      <p class="text-sm text-gray-500"><%= @municipe.address.city %>, <%= @municipe.address.state %></p>
+    </div>
+    <div class="flex-1 flex flex-col items-center lg:items-end justify-end px-8 mt-2">
+      <div class="flex items-center space-x-4 mt-2">
+      </div>
+    </div>
+  </div>
+
+  <div class="my-4 flex flex-col 2xl:flex-row space-y-4 2xl:space-y-0 2xl:space-x-2">
+    <div class="w-full flex gap-2">
+      <div class="flex-1 bg-white rounded-lg shadow-xl p-6">
+        <h4 class="text-xl text-gray-900 font-bold">Personal Info</h4>
+        <ul class="mt-2 text-gray-700">
+          <li>Nome: <%= @municipe.full_name %></li>
+          <li>Cpf: <%= @municipe.cpf %></li>
+          <li>CNS: <%= @municipe.cns %></li>
+          <li>E-mail: <%= @municipe.email %></li>
+          <li>Nascimento: <%= I18n.l(@municipe.birth_date) %></li>
+          <li>Telefone: <%= @municipe.phone_number %></li>
+          <li>status: <%= t("activerecord.attributes.municipe.status.#{@municipe.status}") %></li>
+        </ul>
+      </div>
+      <div class="flex-1 bg-white rounded-lg shadow-xl p-6">
+        <h4 class="text-xl text-gray-900 font-bold">Address Info</h4>
+        <ul class="mt-2 text-gray-700">
+          <li>Cidade: <%= @municipe.address.city %></li>
+          <li>UF: <%= @municipe.address.state %></li>
+          <li>Bairro: <%= @municipe.address.neighborhood %></li>
+          <li>Complemento: <%= @municipe.address.complement %></li>
+          <li>CEP: <%= @municipe.address.cep %></li>
+          <li>Código IBGE: <%= @municipe.address.ibge_code %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
