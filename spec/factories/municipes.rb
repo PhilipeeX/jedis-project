@@ -13,5 +13,17 @@ FactoryBot.define do
       Rack::Test::UploadedFile.new(random_image_file, 'image/jpeg')
     end
     status { %i[active inactive].sample }
+
+    address_attributes do
+      {
+        cep: FFaker::AddressBR.zip_code,
+        street: FFaker::AddressBR.street_name,
+        complement: FFaker::AddressBR.secondary_address,
+        neighborhood: FFaker::AddressBR.neighborhood,
+        city: FFaker::AddressBR.city,
+        state: FFaker::AddressBR.state_abbr,
+        ibge_code: %w[2914703 3161403 1101005 3504206 3537156].sample
+      }
+    end
   end
 end

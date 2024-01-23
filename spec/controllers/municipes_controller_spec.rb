@@ -34,9 +34,10 @@ RSpec.describe MunicipesController, type: :controller do
       end.to change(Municipe, :count).by(1)
     end
 
-    it 'dont creates a new municipe with invalid params' do
+    it 'dont creates a new municipe with invalid municipe params' do
       expect do
-        post :create, params: { municipe: attributes_for(:municipe, cpf: '102.785.90056') }
+        post :create, params: { municipe: attributes_for(:municipe, cpf: '102.785.90056',
+                                                                    address_attributes: { cep: '57660-970' }) }
       end.to change(Municipe, :count).by(0)
     end
   end
