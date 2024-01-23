@@ -21,6 +21,7 @@ group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot', '~> 6.4', '>= 6.4.5'
   gem 'factory_bot_rails', '~> 6.2'
+  gem 'ffaker', '~> 2.21'
   gem 'rubocop', require: false
   gem 'rubocop-capybara', '~> 2.19'
   gem 'rubocop-rails', require: false
@@ -33,7 +34,6 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'ffaker', '~> 2.21'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
