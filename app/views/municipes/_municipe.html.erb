@@ -1,5 +1,5 @@
 <tr id="<%= dom_id municipe %>" class="<%= cycle('bg-gray-100', 'bg-gray-200') %>">
-  <td><%= image_tag municipe.photo if municipe.photo.attached? %></td>
+  <td class="py-2 px-4 border-b"><%= image_tag municipe.photo, class: 'w-fit object-contain' if municipe.photo.attached? %></td>
   <td class="py-2 px-4 border-b"><%= municipe.full_name %></td>
   <td class="py-2 px-4 border-b"><%= municipe.cpf %></td>
   <td class="py-2 px-4 border-b"><%= municipe.cns %></td>
