@@ -60,7 +60,7 @@
       <%= form.fields_for :address do |address_form| %>
         <div>
           <%= address_form.label :cep, style: "display: block" %>
-          <%= address_form.text_field :cep %>
+          <%= address_form.text_field :cep, placeholder: 'Ex.:00000-000' %>
         </div>
         <div>
           <%= address_form.label :street, style: "display: block" %>
