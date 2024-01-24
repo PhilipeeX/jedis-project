@@ -18,6 +18,7 @@ RSpec.feature 'Municipes', js: true, type: :feature do
     valid_cpf = '269.461.417-50'
     valid_email = FFaker::Internet.free_email
 
+    # profile
     attach_file 'municipe_photo', 'spec/fixtures/images/profiles/perfil-masculino-2.jpg'
     fill_in('municipe[full_name]', with: 'Rick Spohr')
     fill_in('municipe[cpf]', with: valid_cpf)
@@ -26,6 +27,15 @@ RSpec.feature 'Municipes', js: true, type: :feature do
     fill_in('municipe_email_confirmation', with: valid_email)
     fill_in('municipe_birth_date', with: '1996-09-27')
     fill_in('municipe_phone_number', with: '5521966980366')
+
+    # address
+    fill_in('municipe_address_attributes_cep', with: '04036-100')
+    fill_in('municipe_address_attributes_street', with: 'Rua Domingos de Morais')
+    fill_in('municipe_address_attributes_neighborhood', with: 'Vila Mariana')
+    fill_in('municipe_address_attributes_city', with: 'São Paulo')
+    fill_in('municipe_address_attributes_state', with: 'SP')
+
+
     select(I18n.t('activerecord.attributes.municipe.status.active'), from: 'municipe_status')
     click_button I18n.t('municipes.form.save')
 

@@ -23,6 +23,8 @@ RSpec.describe MunicipesController, type: :controller do
   end
 
   describe 'POST #create' do
+    let(:valid_cep) { '69076-710' }
+    let(:invalid_cep) { '65078-720' }
     it 'redirects to the show page on success' do
       post :create, params: { municipe: attributes_for(:municipe) }
       expect(response).to redirect_to(assigns(:municipe))
@@ -36,8 +38,30 @@ RSpec.describe MunicipesController, type: :controller do
 
     it 'dont creates a new municipe with invalid municipe params' do
       expect do
-        post :create, params: { municipe: attributes_for(:municipe, cpf: '102.785.90056',
-                                                                    address_attributes: { cep: '57660-970' }) }
+        post :create, params: { municipe: attributes_for(:municipe, cpf: '102.785.90056') }
+      end.to change(Municipe, :count).by(0)
+    end
+
+    it 'Creates a new municipe with valid address params' do
+
+      expect do
+        post :create, params: { municipe: attributes_for(:municipe).merge(address_attributes: { cep: valid_cep,
+                                                                                                street: 'Rua 2',
+                                                                                                neighborhood: 'Centro',
+                                                                                                city: 'Niterói',
+                                                                                                state: 'RJ'}) }
+      end.to change(Municipe, :count).by(1)
+    end
+
+    it 'dont creates a new municipe with invalid address params' do
+      cep_valido = '69076-710'
+
+      expect do
+        post :create, params: { municipe: attributes_for(:municipe).merge(address_attributes: { cep: invalid_cep,
+                                                                                                street: 'Rua 2',
+                                                                                                neighborhood: 'Centro',
+                                                                                                city: 'Niterói',
+                                                                                                state: 'RJ'}) }
       end.to change(Municipe, :count).by(0)
     end
   end
