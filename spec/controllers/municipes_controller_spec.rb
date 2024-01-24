@@ -43,25 +43,22 @@ RSpec.describe MunicipesController, type: :controller do
     end
 
     it 'Creates a new municipe with valid address params' do
-
       expect do
         post :create, params: { municipe: attributes_for(:municipe).merge(address_attributes: { cep: valid_cep,
                                                                                                 street: 'Rua 2',
                                                                                                 neighborhood: 'Centro',
                                                                                                 city: 'Niterói',
-                                                                                                state: 'RJ'}) }
+                                                                                                state: 'RJ' }) }
       end.to change(Municipe, :count).by(1)
     end
 
     it 'dont creates a new municipe with invalid address params' do
-      cep_valido = '69076-710'
-
       expect do
         post :create, params: { municipe: attributes_for(:municipe).merge(address_attributes: { cep: invalid_cep,
                                                                                                 street: 'Rua 2',
                                                                                                 neighborhood: 'Centro',
                                                                                                 city: 'Niterói',
-                                                                                                state: 'RJ'}) }
+                                                                                                state: 'RJ' }) }
       end.to change(Municipe, :count).by(0)
     end
   end

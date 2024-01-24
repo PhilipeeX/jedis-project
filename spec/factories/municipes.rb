@@ -16,7 +16,7 @@ FactoryBot.define do
 
     address_attributes do
       {
-        cep: FFaker::AddressBR.zip_code,
+        cep: '25958-730',
         street: FFaker::AddressBR.street_name,
         complement: FFaker::AddressBR.secondary_address,
         neighborhood: FFaker::AddressBR.neighborhood,
