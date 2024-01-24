@@ -20,3 +20,5 @@ pt-BR:
       back: 'Voltar para cidadãos'
     form:
       save: 'Salvar'
+      turbo_submit: 'Salvando...'
+      generate_cns: 'Gerar CNS'

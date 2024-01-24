@@ -9,7 +9,7 @@ if Rails.env.development?
                                       phone_number: FFaker::PhoneNumberBR.international_mobile_phone_number,
                                       status: rand(0..1)) do |municipe|
     municipe.photo.attach(io: File.open(Rails.root.join('spec/fixtures/images/profiles/perfil-masculino-1.jpg').to_s), filename: 'foto-homem-1.jpg')
-    municipe.build_address(cep: FFaker::AddressBR.zip_code,
+    municipe.build_address(cep: '21515-537',
                            street: FFaker::AddressBR.street_name,
                            complement: FFaker::AddressBR.secondary_address,
                            neighborhood: FFaker::AddressBR.neighborhood,
@@ -26,7 +26,7 @@ if Rails.env.development?
                                       phone_number: FFaker::PhoneNumberBR.international_mobile_phone_number,
                                       status: rand(0..1)) do |municipe|
     municipe.photo.attach(io: File.open(Rails.root.join('spec/fixtures/images/profiles/perfil-feminino-1.jpg').to_s), filename: 'foto-mulher-1.jpg')
-    municipe.build_address(cep: FFaker::AddressBR.zip_code,
+    municipe.build_address(cep: '21515-537',
                            street: FFaker::AddressBR.street_name,
                            complement: FFaker::AddressBR.secondary_address,
                            neighborhood: FFaker::AddressBR.neighborhood,
