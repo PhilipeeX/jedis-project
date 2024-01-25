@@ -9,6 +9,7 @@ class Municipe < ApplicationRecord
   validates :birth_date, birth_date: true
   validates :email, confirmation: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :email, confirmation: { case_sensitive: false }
+  validates :phone_number, phone: { possible: true, countries: :br }
 
   validates :full_name, :cpf, :cns, :email, :email_confirmation, :birth_date, :phone_number, :photo, :status,
             presence: true
