@@ -16,6 +16,7 @@ class MunicipesController < ApplicationController
     @municipe = Municipe.new(municipe_params)
 
     if @municipe.save
+      MunicipeMailer.register_successful(@municipe).deliver_later
       redirect_to @municipe, notice: t('.create')
     else
       render :new, status: :unprocessable_entity
@@ -26,10 +27,18 @@ class MunicipesController < ApplicationController
 
   def update
     if @municipe.update(municipe_params)
+      MunicipeMailer.data_update_successful(@municipe).deliver_later
       redirect_to @municipe, notice: t('.update')
+
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def toggle_status
+    @municipe = Municipe.find(params[:id])
+    Toggle::MunicipeStatus.call(@municipe)
+    redirect_to root_path, notice: 'status alterado'
   end
 
   private
