@@ -105,6 +105,10 @@ GEM
     factory_bot_rails (6.4.3)
       factory_bot (~> 6.4)
       railties (>= 5.0.0)
+    faraday (2.9.0)
+      faraday-net_http (>= 2.0, < 3.2)
+    faraday-net_http (3.1.0)
+      net-http
     ffaker (2.23.0)
     ffi (1.16.3)
     ffi-compiler (1.0.1)
@@ -137,6 +141,7 @@ GEM
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     json (2.7.1)
+    jwt (2.7.1)
     language_server-protocol (3.17.0.3)
     launchy (2.5.2)
       addressable (~> 2.8)
@@ -181,6 +186,7 @@ GEM
       ast (~> 2.4.1)
       racc
     pg (1.5.4)
+    phonelib (0.8.7)
     psych (5.1.2)
       stringio
     public_suffix (5.0.4)
@@ -300,6 +306,10 @@ GEM
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
+    twilio-ruby (6.9.1)
+      faraday (>= 0.9, < 3.0)
+      jwt (>= 1.5, < 3.0)
+      nokogiri (>= 1.6, < 2.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.5.0)
@@ -339,6 +349,7 @@ DEPENDENCIES
   letter_opener
   letter_opener_web
   pg (~> 1.1)
+  phonelib
   puma (~> 5.0)
   rails (~> 7.0.8)
   rails-controller-testing
@@ -354,6 +365,7 @@ DEPENDENCIES
   stimulus-rails
   tailwindcss-rails (~> 2.3)
   turbo-rails
+  twilio-ruby
   tzinfo-data
   validates-correios-cep
   web-console
