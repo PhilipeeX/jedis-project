@@ -27,27 +27,27 @@
   <div class="my-4 flex flex-col 2xl:flex-row space-y-4 2xl:space-y-0 2xl:space-x-2">
     <div class="w-full flex gap-2">
       <div class="flex-1 bg-white rounded-lg shadow-xl p-6">
-        <h4 class="text-xl text-gray-900 font-bold">Personal Info</h4>
+        <h4 class="text-xl text-gray-900 font-bold"><%= t '.personal_info' %></h4>
         <ul class="mt-2 text-gray-700">
-          <li>Nome: <%= @municipe.full_name %></li>
-          <li>Cpf: <%= @municipe.cpf %></li>
-          <li>CNS: <%= @municipe.cns %></li>
-          <li>E-mail: <%= @municipe.email %></li>
-          <li>Nascimento: <%= I18n.l(@municipe.birth_date) %></li>
-          <li>Telefone: <%= @municipe.phone_number %></li>
-          <li>status: <%= t("activerecord.attributes.municipe.status.#{@municipe.status}") %></li>
-          <%= button_to 'Alterar status', toggle_status_municipe_path(@municipe), method: :patch, data: { turbo_action: 'replace' }, class: 'hover:underline' %>
+          <li><%= I18n.t('activerecord.attributes.municipe.full_name') %>: <%= @municipe.full_name %></li>
+          <li><%= I18n.t('activerecord.attributes.municipe.cpf') %>: <%= @municipe.cpf %></li>
+          <li><%= I18n.t('activerecord.attributes.municipe.cns') %>: <%= @municipe.cns %></li>
+          <li><%= I18n.t('activerecord.attributes.municipe.email') %>: <%= @municipe.email %></li>
+          <li><%= I18n.t('activerecord.attributes.municipe.birth_date') %>: <%= I18n.l(@municipe.birth_date) %></li>
+          <li><%= I18n.t('activerecord.attributes.municipe.phone_number') %>: <%= @municipe.phone_number %></li>
+          <li><%= t '.status' %>: <%= t("activerecord.attributes.municipe.status.#{@municipe.status}") %></li>
+          <%= button_to t('.toggle_status'), toggle_status_municipe_path(@municipe), method: :patch, data: { turbo_action: 'replace' }, class: 'hover:underline' %>
         </ul>
       </div>
       <div class="flex-1 bg-white rounded-lg shadow-xl p-6">
-        <h4 class="text-xl text-gray-900 font-bold">Address Info</h4>
+        <h4 class="text-xl text-gray-900 font-bold"><%= t '.address_info' %></h4>
         <ul class="mt-2 text-gray-700">
-          <li>Cidade: <%= @municipe.address.city %></li>
-          <li>UF: <%= @municipe.address.state %></li>
-          <li>Bairro: <%= @municipe.address.neighborhood %></li>
-          <li>Complemento: <%= @municipe.address.complement %></li>
-          <li>CEP: <%= @municipe.address.cep %></li>
-          <li>Código IBGE: <%= @municipe.address.ibge_code %></li>
+          <li><%= I18n.t('activerecord.attributes.address.city') %>: <%= @municipe.address.city %></li>
+          <li><%= I18n.t('activerecord.attributes.address.state') %>: <%= @municipe.address.state %></li>
+          <li><%= I18n.t('activerecord.attributes.address.neighborhood') %>: <%= @municipe.address.neighborhood %></li>
+          <li><%= I18n.t('activerecord.attributes.address.complement') %>: <%= @municipe.address.complement %></li>
+          <li><%= I18n.t('activerecord.attributes.address.cep') %>: <%= @municipe.address.cep %></li>
+          <li><%= I18n.t('activerecord.attributes.address.ibge_code') %>: <%= @municipe.address.ibge_code %></li>
         </ul>
       </div>
     </div>

@@ -10,6 +10,6 @@
   <td class="py-2 px-4 border-b">
     <%= link_to t('.show'), municipe, class: 'hover:underline' %>
     <%= link_to t('.edit'), edit_municipe_path(municipe), class: 'hover:underline' %>
-    <%= button_to 'Alterar status', toggle_status_municipe_path(municipe), method: :patch, data: { turbo_action: 'replace', turbo_confirm: "Deseja realmente alterar o status de #{municipe.full_name}" }, class: 'hover:underline' %>
+    <%= button_to t('.toggle_status'), toggle_status_municipe_path(municipe), method: :patch, data: { turbo_action: 'replace', turbo_confirm: t('.toggle_confirm') }, class: 'hover:underline' %>
   </td>
 </tr>

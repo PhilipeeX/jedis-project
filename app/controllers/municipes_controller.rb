@@ -38,9 +38,9 @@ class MunicipesController < ApplicationController
   def toggle_status
     if @municipe.update_columns(status: (@municipe.active? ? 'inactive' : 'active'))
       MunicipeMailer.update_status(@municipe).deliver_later
-      redirect_to root_path, notice: 'status alterado'
+      redirect_to root_path, notice: t('.toggle_status.success')
     else
-      redirect_to municipe_path(@municipe), status: :unprocessable_entity, notice: 'status não pôde ser alterado'
+      redirect_to municipe_path(@municipe), status: :unprocessable_entity, notice: t('.toggle_status.failure')
     end
 
   end
