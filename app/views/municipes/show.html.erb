@@ -36,6 +36,7 @@
           <li>Nascimento: <%= I18n.l(@municipe.birth_date) %></li>
           <li>Telefone: <%= @municipe.phone_number %></li>
           <li>status: <%= t("activerecord.attributes.municipe.status.#{@municipe.status}") %></li>
+          <%= button_to 'Alterar status', toggle_status_municipe_path(@municipe), method: :patch, data: { turbo_action: 'replace' }, class: 'hover:underline' %>
         </ul>
       </div>
       <div class="flex-1 bg-white rounded-lg shadow-xl p-6">

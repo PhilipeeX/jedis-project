@@ -1,5 +1,5 @@
 class MunicipesController < ApplicationController
-  before_action :set_municipe, only: %i[show edit update]
+  before_action :set_municipe, only: %i[show edit update toggle_status]
 
   def index
     @municipes = Municipe.all
@@ -36,9 +36,13 @@ class MunicipesController < ApplicationController
   end
 
   def toggle_status
-    @municipe = Municipe.find(params[:id])
-    Toggle::MunicipeStatus.call(@municipe)
-    redirect_to root_path, notice: 'status alterado'
+    if @municipe.update_columns(status: (@municipe.active? ? 'inactive' : 'active'))
+      MunicipeMailer.update_status(@municipe).deliver_later
+      redirect_to root_path, notice: 'status alterado'
+    else
+      redirect_to municipe_path(@municipe), status: :unprocessable_entity, notice: 'status não pôde ser alterado'
+    end
+
   end
 
   private
