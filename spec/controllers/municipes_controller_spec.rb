@@ -98,4 +98,17 @@ RSpec.describe MunicipesController, type: :controller do
       expect(response).to render_template(:show)
     end
   end
+
+  describe 'PATCH #toggle_status' do
+    let(:municipe) { create(:municipe, status: 'active') }
+
+    it 'toggles the status successfully' do
+      patch :toggle_status, params: { id: municipe.id }
+
+      municipe.reload
+      expect(municipe.status).to eq('inactive')
+      expect(response).to redirect_to(root_path)
+      expect(flash[:notice]).to eq(I18n.t('municipes.toggle_status.success'))
+    end
+  end
 end
