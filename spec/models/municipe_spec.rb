@@ -8,7 +8,6 @@ RSpec.describe Municipe, type: :model do
     it { should validate_presence_of(:cpf) }
     it { should validate_presence_of(:cns) }
     it { should validate_presence_of(:email) }
-    it { should validate_presence_of(:email_confirmation) }
     it { should validate_presence_of(:birth_date) }
     it { should validate_presence_of(:phone_number) }
     it { should validate_presence_of(:photo) }

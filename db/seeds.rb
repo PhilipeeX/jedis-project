@@ -4,7 +4,6 @@ if Rails.env.development?
                    cpf: FFaker::IdentificationBR.cpf,
                    cns: '274892941220002',
                    email: 'dev.philipe@outlook.com',
-                   email_confirmation: 'dev.philipe@outlook.com',
                    birth_date: Date.strptime('23/11/1988', '%d/%m/%Y'),
                    phone_number: FFaker::PhoneNumberBR.phone_number,
                    status: rand(0..1)) do |municipe|
@@ -22,7 +21,6 @@ if Rails.env.development?
                    cpf: FFaker::IdentificationBR.cpf,
                    cns: '165570383740009',
                    email: 'email_exemplo@outlook.com',
-                   email_confirmation: 'email_exemplo@outlook.com',
                    birth_date: Date.strptime('09/01/1992', '%d/%m/%Y'),
                    phone_number: FFaker::PhoneNumberBR.phone_number,
                    status: rand(0..1)) do |municipe|
@@ -40,7 +38,6 @@ if Rails.env.development?
                    cpf: FFaker::IdentificationBR.cpf,
                    cns: '143260138860007',
                    email: 'email3@outlook.com',
-                   email_confirmation: 'email3@outlook.com',
                    birth_date: Date.strptime('03/07/1995', '%d/%m/%Y'),
                    phone_number: FFaker::PhoneNumberBR.phone_number,
                    status: rand(0..1)) do |municipe|
@@ -58,7 +55,6 @@ if Rails.env.development?
                    cpf: FFaker::IdentificationBR.cpf,
                    cns: '140008488340007',
                    email: 'email_aleatorio@outlook.com',
-                   email_confirmation: 'email_aleatorio@outlook.com',
                    birth_date: Date.strptime('23/01/1990', '%d/%m/%Y'),
                    phone_number: FFaker::PhoneNumberBR.phone_number,
                    status: rand(0..1)) do |municipe|
@@ -76,7 +72,6 @@ if Rails.env.development?
                    cpf: FFaker::IdentificationBR.cpf,
                    cns: '713128265740005',
                    email: 'email_aleatorio2@outlook.com',
-                   email_confirmation: 'email_aleatorio2@outlook.com',
                    birth_date: Date.strptime('03/09/1996', '%d/%m/%Y'),
                    phone_number: FFaker::PhoneNumberBR.phone_number,
                    status: rand(0..1)) do |municipe|

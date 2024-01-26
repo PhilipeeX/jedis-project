@@ -24,7 +24,6 @@ RSpec.feature 'Municipes', js: true, type: :feature do
     fill_in('municipe[cpf]', with: valid_cpf)
     fill_in('municipe[cns]', with: '750620311660008')
     fill_in('municipe_email', with: valid_email)
-    fill_in('municipe_email_confirmation', with: valid_email)
     fill_in('municipe_birth_date', with: '1996-09-27')
     fill_in('municipe_phone_number', with: '21966980366')
 
@@ -56,7 +55,6 @@ RSpec.feature 'Municipes', js: true, type: :feature do
     fill_in('municipe[cpf]', with: valid_cpf)
     click_button(I18n.t('municipes.form.generate_cns'))
     fill_in('municipe_email', with: valid_email)
-    fill_in('municipe_email_confirmation', with: valid_email)
     fill_in('municipe_birth_date', with: '1996-09-27')
     fill_in('municipe_phone_number', with: '21966980366')
 
@@ -94,7 +92,6 @@ RSpec.feature 'Municipes', js: true, type: :feature do
     fill_in('municipe[cpf]', with: valid_cpf)
     fill_in('municipe[cns]', with: '838337659440018')
     fill_in('municipe_email', with: valid_email)
-    fill_in('municipe_email_confirmation', with: valid_email)
     click_button I18n.t('municipes.form.save')
 
     expect(page).to have_text('Lucas Borges')
@@ -112,7 +109,6 @@ RSpec.feature 'Municipes', js: true, type: :feature do
     fill_in('municipe[cpf]', with: valid_cpf)
     fill_in('municipe[cns]', with: '838337659440018')
     fill_in('municipe_email', with: 'marcos_dev@gmail..com')
-    fill_in('municipe[email_confirmation]', with: 'marcos_dev@gmail..com')
     click_button I18n.t('municipes.form.save')
 
     expect(page).to have_text(I18n.t('errors.messages.invalid'))
