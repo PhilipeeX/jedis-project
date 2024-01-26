@@ -5,6 +5,8 @@ pt-BR:
       actions: 'Ações'
       add_municipe: 'Cadastrar cidadão'
       status: 'Status'
+      search_info: 'Informações pessoais ou de endereço'
+      search: 'Pesquisar'
     edit:
       title: 'Editando cidadão'
       show: 'Mostrar'
