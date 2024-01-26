@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe TwilioClient do
-  let(:twilio_client) { TwilioClient.new }
+describe Notification::TwilioClient do
+  let(:twilio_client) { Notification::TwilioClient.new }
 
   describe '#send_text' do
     xit 'sends a text message to a valid phone number' do

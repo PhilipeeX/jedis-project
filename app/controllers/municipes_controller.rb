@@ -17,8 +17,7 @@ class MunicipesController < ApplicationController
     @municipe = Municipe.new(municipe_params)
 
     if @municipe.save
-      MunicipeMailer.register_successful(@municipe).deliver_later
-      # TwilioClient.new.send_text(@municipe, 'Cadastro realizado com sucesso!')
+      Notification::MessageDeliverer.call(@municipe, :create)
       redirect_to @municipe, notice: t('.create')
     else
       render :new, status: :unprocessable_entity
@@ -29,8 +28,7 @@ class MunicipesController < ApplicationController
 
   def update
     if @municipe.update(municipe_params)
-      MunicipeMailer.data_update_successful(@municipe).deliver_later
-      # TwilioClient.new.send_text(@municipe, 'Seus dados foram atualizados com sucesso!')
+      Notification::MessageDeliverer.call(@municipe, :update)
       redirect_to @municipe, notice: t('.update')
     else
       render :edit, status: :unprocessable_entity
@@ -38,14 +36,14 @@ class MunicipesController < ApplicationController
   end
 
   def toggle_status
-    if @municipe.update_columns(status: (@municipe.active? ? 'inactive' : 'active'))
-      MunicipeMailer.update_status(@municipe).deliver_later
-      # TwilioClient.new.send_text(@municipe, 'Seu status foi alterado em nosso sistema!')
+    update_status!
+
+    if @municipe.save
+      Notification::MessageDeliverer.call(@municipe, :toggle_status)
       redirect_to root_path, notice: t('.toggle_status.success')
     else
       redirect_to municipe_path(@municipe), status: :unprocessable_entity, notice: t('.toggle_status.failure')
     end
-
   end
 
   private
@@ -58,5 +56,9 @@ class MunicipesController < ApplicationController
     params.require(:municipe).permit(:full_name, :cpf, :cns, :email, :email_confirmation, :birth_date, :phone_number,
                                      :photo, :status,
                                      address_attributes: %i[cep street complement neighborhood city state ibge_code])
+  end
+
+  def update_status!
+    @municipe.status = @municipe.status == 'active' ? 'inactive' : 'active'
   end
 end
