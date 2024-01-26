@@ -8,17 +8,17 @@ gem 'foreman', '~> 0.87.2'
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'pg', '~> 1.1'
+gem 'phonelib'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.8'
+gem 'ransack'
 gem 'redis', '~> 4.0'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
+gem 'twilio-ruby'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'validates-correios-cep'
-gem 'twilio-ruby'
-gem 'phonelib'
-gem 'ransack'
 
 group :development, :test do
   gem 'database_cleaner', '~> 2.0', '>= 2.0.2'
@@ -33,9 +33,9 @@ group :development, :test do
 end
 
 group :development do
-  gem 'web-console'
-  gem "letter_opener"
+  gem 'letter_opener'
   gem 'letter_opener_web'
+  gem 'web-console'
 end
 
 group :test do
