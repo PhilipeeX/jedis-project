@@ -1,0 +1,8 @@
+pt-BR:
+  municipe_mailer:
+    register_successful:
+      subject: 'Cidadão registrado com sucesso!'
+    data_update_successful:
+      subject: 'Atualização realizada'
+    update_status:
+      subject: 'Alteração no seu status.'

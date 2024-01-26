@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+<h1>O seu status sofreu alteração</h1>
+<p>Olá <%= @municipe.full_name %>,</p>
+<p>Informamos que seu status foi alterado.</p>
+
+<p>O seu status sofreu alteração e agora em nosso sistema consta como:
+  <%= t("activerecord.attributes.municipe.status.#{@municipe.status}") %>
+</p>
+</body>
+</html>

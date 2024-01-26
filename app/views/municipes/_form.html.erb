@@ -38,18 +38,13 @@
       </div>
 
       <div>
-        <%= form.label :email_confirmation, style: "display: block" %>
-        <%= form.text_field :email_confirmation, placeholder: 'Ex.:example@domain.com' %>
-      </div>
-
-      <div>
         <%= form.label :birth_date, style: "display: block" %>
         <%= form.date_field :birth_date %>
       </div>
 
       <div>
         <%= form.label :phone_number, style: "display: block" %>
-        <%= form.text_field :phone_number, placeholder: 'Ex.:21966047999' %>
+        <%= form.text_field :phone_number, placeholder: 'Ex.:(21) 965045799',minlength: 11, maxlength: 11 %>
       </div>
 
       <div>

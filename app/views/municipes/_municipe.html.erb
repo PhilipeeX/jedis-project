@@ -3,12 +3,13 @@
   <td class="py-2 px-4 border-b"><%= municipe.full_name %></td>
   <td class="py-2 px-4 border-b"><%= municipe.cpf %></td>
   <td class="py-2 px-4 border-b"><%= municipe.cns %></td>
-  <td class="py-2 px-4 border-b"><%= municipe.email %></td>
-  <td class="py-2 px-4 border-b"><%= I18n.l(municipe.birth_date) %></td>
-  <td class="py-2 px-4 border-b"><%= municipe.phone_number %></td>
+  <td class="py-2 px-4 border-b"><%= municipe.address.state %></td>
+  <td class="py-2 px-4 border-b"><%= municipe.address.city %></td>
+  <td class="py-2 px-4 border-b"><%= phone_formatter(municipe.phone_number) %></td>
   <td class="py-2 px-4 border-b"><%= t("activerecord.attributes.municipe.status.#{municipe.status}") %></td>
   <td class="py-2 px-4 border-b">
     <%= link_to t('.show'), municipe, class: 'hover:underline' %>
     <%= link_to t('.edit'), edit_municipe_path(municipe), class: 'hover:underline' %>
+    <%= button_to t('.toggle_status'), toggle_status_municipe_path(municipe), method: :patch, data: { turbo_action: 'replace', turbo_confirm: t('.toggle_confirm') }, class: 'hover:underline' %>
   </td>
 </tr>

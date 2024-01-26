@@ -4,14 +4,38 @@ RSpec.describe MunicipesController, type: :controller do
   let!(:municipe) { create(:municipe) }
 
   describe 'GET #index' do
-    it 'renders the index template' do
-      get :index
-      expect(response).to render_template(:index)
+    let!(:active_municipe) { create(:municipe, status: :active) }
+    let!(:inactive_municipe) { create(:municipe, status: :inactive) }
+
+    context 'without search parameters' do
+      it 'renders the index template' do
+        get :index
+        expect(response).to render_template(:index)
+      end
+
+      it 'assigns all municipes to @municipes' do
+        get :index
+        expect(assigns(:municipes)).to eq([municipe, active_municipe, inactive_municipe])
+      end
     end
 
-    it 'assigns all municipes to @municipes' do
-      get :index
-      expect(assigns(:municipes)).to eq([municipe])
+    context 'with search parameters' do
+      let(:name) { active_municipe.full_name }
+      it 'renders the index template' do
+        get :index,
+            params:
+              { q:
+                  { full_name_or_cpf_or_cns_or_email_or_phone_number_or_address_state_or_address_city_cont: name } }
+        expect(response).to render_template(:index)
+      end
+
+      it 'assigns filtered municipes to @municipes' do
+        get :index,
+            params:
+              { q:
+                  { full_name_or_cpf_or_cns_or_email_or_phone_number_or_address_state_or_address_city_cont: name } }
+        expect(assigns(:municipes)).to eq([active_municipe])
+      end
     end
   end
 
@@ -96,6 +120,19 @@ RSpec.describe MunicipesController, type: :controller do
     it 'renders the show template' do
       get :show, params: { id: municipe.id }
       expect(response).to render_template(:show)
+    end
+  end
+
+  describe 'PATCH #toggle_status' do
+    let(:municipe) { create(:municipe, status: 'active') }
+
+    it 'toggles the status successfully' do
+      patch :toggle_status, params: { id: municipe.id }
+
+      municipe.reload
+      expect(municipe.status).to eq('inactive')
+      expect(response).to redirect_to(root_path)
+      expect(flash[:notice]).to eq(I18n.t('municipes.toggle_status.success'))
     end
   end
 end
