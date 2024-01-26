@@ -4,14 +4,31 @@ RSpec.describe MunicipesController, type: :controller do
   let!(:municipe) { create(:municipe) }
 
   describe 'GET #index' do
-    it 'renders the index template' do
-      get :index
-      expect(response).to render_template(:index)
+    let!(:active_municipe) { create(:municipe, status: :active) }
+    let!(:inactive_municipe) { create(:municipe, status: :inactive) }
+
+    context 'without search parameters' do
+      it 'renders the index template' do
+        get :index
+        expect(response).to render_template(:index)
+      end
+
+      it 'assigns all municipes to @municipes' do
+        get :index
+        expect(assigns(:municipes)).to eq([municipe, active_municipe, inactive_municipe])
+      end
     end
 
-    it 'assigns all municipes to @municipes' do
-      get :index
-      expect(assigns(:municipes)).to eq([municipe])
+    context 'with search parameters' do
+      it 'renders the index template' do
+        get :index, params: { q: { full_name_or_cpf_or_cns_or_email_or_phone_number_or_address_state_or_address_city_cont: active_municipe.full_name } }
+        expect(response).to render_template(:index)
+      end
+
+      it 'assigns filtered municipes to @municipes' do
+        get :index, params: { q: { full_name_or_cpf_or_cns_or_email_or_phone_number_or_address_state_or_address_city_cont: active_municipe.full_name } }
+        expect(assigns(:municipes)).to eq([active_municipe])
+      end
     end
   end
 
