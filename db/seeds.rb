@@ -6,7 +6,7 @@ if Rails.env.development?
                                       email: 'dev.philipe@outlook.com',
                                       email_confirmation: 'dev.philipe@outlook.com',
                                       birth_date: Date.strptime('23/11/1988', '%d/%m/%Y'),
-                                      phone_number: FFaker::PhoneNumberBR.international_mobile_phone_number,
+                                      phone_number: FFaker::PhoneNumberBR.phone_number,
                                       status: rand(0..1)) do |municipe|
     municipe.photo.attach(io: File.open(Rails.root.join('spec/fixtures/images/profiles/perfil-masculino-1.jpg').to_s), filename: 'foto-homem-1.jpg')
     municipe.build_address(cep: '21515-537',
@@ -23,7 +23,7 @@ if Rails.env.development?
                                       email: 'email_exemplo@outlook.com',
                                       email_confirmation: 'email_exemplo@outlook.com',
                                       birth_date: Date.strptime('09/01/1992', '%d/%m/%Y'),
-                                      phone_number: FFaker::PhoneNumberBR.international_mobile_phone_number,
+                                      phone_number: FFaker::PhoneNumberBR.phone_number,
                                       status: rand(0..1)) do |municipe|
     municipe.photo.attach(io: File.open(Rails.root.join('spec/fixtures/images/profiles/perfil-feminino-1.jpg').to_s), filename: 'foto-mulher-1.jpg')
     municipe.build_address(cep: '21515-537',
