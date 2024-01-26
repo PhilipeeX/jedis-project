@@ -34,7 +34,7 @@
           <li><%= I18n.t('activerecord.attributes.municipe.cns') %>: <%= @municipe.cns %></li>
           <li><%= I18n.t('activerecord.attributes.municipe.email') %>: <%= @municipe.email %></li>
           <li><%= I18n.t('activerecord.attributes.municipe.birth_date') %>: <%= I18n.l(@municipe.birth_date) %></li>
-          <li><%= I18n.t('activerecord.attributes.municipe.phone_number') %>: <%= @municipe.phone_number %></li>
+          <li><%= I18n.t('activerecord.attributes.municipe.phone_number') %>: <%= phone_formatter(@municipe.phone_number) %></li>
           <li><%= t '.status' %>: <%= t("activerecord.attributes.municipe.status.#{@municipe.status}") %></li>
           <%= button_to t('.toggle_status'), toggle_status_municipe_path(@municipe), method: :patch, data: { turbo_action: 'replace' }, class: 'hover:underline' %>
         </ul>
