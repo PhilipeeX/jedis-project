@@ -13,4 +13,12 @@ class Municipe < ApplicationRecord
 
   validates :full_name, :cpf, :cns, :email, :email_confirmation, :birth_date, :phone_number, :photo, :status,
             presence: true
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[full_name cpf cns email phone_number]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    %w[address]
+  end
 end

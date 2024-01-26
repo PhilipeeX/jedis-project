@@ -2,17 +2,23 @@
   <p style="color: green"><%= notice %></p>
 
   <h1 class="block"><%= t('.title') %></h1>
+  <%= search_form_for @q do |f| %>
 
+    <%= f.label t('.search_info') %>
+    <%= f.search_field :full_name_or_cpf_or_cns_or_email_or_phone_number_or_address_state_or_address_city_cont, placeholder: t('.search') %>
+
+    <%= f.submit %>
+  <% end %>
   <div class="overflow-x-auto">
     <table class="min-w-full bg-white border border-gray-300">
       <thead>
       <tr>
         <th class="py-2 px-4 border-b"><%= I18n.t('activerecord.attributes.municipe.photo') %></th>
-        <th class="py-2 px-4 border-b"><%= I18n.t('activerecord.attributes.municipe.full_name') %></th>
-        <th class="py-2 px-4 border-b"><%= I18n.t('activerecord.attributes.municipe.cpf') %></th>
-        <th class="py-2 px-4 border-b"><%= I18n.t('activerecord.attributes.municipe.cns') %></th>
-        <th class="py-2 px-4 border-b"><%= I18n.t('activerecord.attributes.municipe.email') %></th>
-        <th class="py-2 px-4 border-b"><%= I18n.t('activerecord.attributes.municipe.birth_date') %></th>
+        <th class="py-2 px-4 border-b"><%= sort_link(@q, :full_name, I18n.t('activerecord.attributes.municipe.full_name')) %></th>
+        <th class="py-2 px-4 border-b"><%= sort_link(@q, :cpf, I18n.t('activerecord.attributes.municipe.cpf')) %></th>
+        <th class="py-2 px-4 border-b"><%= sort_link(@q, :cns, I18n.t('activerecord.attributes.municipe.cns')) %></th>
+        <th class="py-2 px-4 border-b"><%= I18n.t('activerecord.attributes.address.state') %></th>
+        <th class="py-2 px-4 border-b"><%= I18n.t('activerecord.attributes.address.city') %></th>
         <th class="py-2 px-4 border-b"><%= I18n.t('activerecord.attributes.municipe.phone_number') %></th>
         <th class="py-2 px-4 border-b"><%= t('.status') %></th>
         <th class="py-2 px-4 border-b"><%= t('.actions') %></th>
