@@ -26,7 +26,7 @@ RSpec.feature 'Municipes', js: true, type: :feature do
     fill_in('municipe_email', with: valid_email)
     fill_in('municipe_email_confirmation', with: valid_email)
     fill_in('municipe_birth_date', with: '1996-09-27')
-    fill_in('municipe_phone_number', with: '5521966980366')
+    fill_in('municipe_phone_number', with: '21966980366')
 
     # address
     fill_in('municipe_address_attributes_cep', with: '04036-100')
@@ -42,7 +42,7 @@ RSpec.feature 'Municipes', js: true, type: :feature do
     expect(page).to have_text('269.461.417-50')
     expect(page).to have_text('750620311660008')
     expect(page).to have_text('27/09/1996')
-    expect(page).to have_text('5521966980366')
+    expect(page).to have_text('(21) 96698-0366')
   end
 
   scenario 'create municipe with generated CNS' do
@@ -58,7 +58,7 @@ RSpec.feature 'Municipes', js: true, type: :feature do
     fill_in('municipe_email', with: valid_email)
     fill_in('municipe_email_confirmation', with: valid_email)
     fill_in('municipe_birth_date', with: '1996-09-27')
-    fill_in('municipe_phone_number', with: '5521966980366')
+    fill_in('municipe_phone_number', with: '21966980366')
 
     # address
     fill_in('municipe_address_attributes_cep', with: '04036-100')
@@ -73,7 +73,7 @@ RSpec.feature 'Municipes', js: true, type: :feature do
     expect(page).to have_text('Rick Spohr')
     expect(page).to have_text('269.461.417-50')
     expect(page).to have_text('27/09/1996')
-    expect(page).to have_text('5521966980366')
+    expect(page).to have_text('(21) 96698-0366')
     expect(page).to have_text('04036-100')
   end
 
