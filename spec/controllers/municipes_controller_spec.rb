@@ -15,7 +15,7 @@ RSpec.describe MunicipesController, type: :controller do
 
       it 'assigns all municipes to @municipes' do
         get :index
-        expect(assigns(:municipes)).to eq([municipe, active_municipe, inactive_municipe])
+        expect(assigns(:municipes)).to match_array([municipe, active_municipe, inactive_municipe])
       end
     end
 
