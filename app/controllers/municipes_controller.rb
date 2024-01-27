@@ -3,6 +3,7 @@ class MunicipesController < ApplicationController
 
   def index
     @q = Municipe.ransack(params[:q])
+    @q.sorts = 'full_name asc' if @q.sorts.empty?
     @municipes = @q.result.includes(:address)
   end
 

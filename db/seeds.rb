@@ -84,4 +84,55 @@ if Rails.env.development?
                            state: FFaker::AddressBR.state_abbr,
                            ibge_code: %w[2914703 3161403 1101005 3504206 3537156].sample)
   end
+  # Municipe 6
+  Municipe.create!(full_name: FFaker::NameBR.first_name_male + " " + FFaker::NameBR.last_name,
+                   cpf: FFaker::IdentificationBR.cpf,
+                   cns: '272914623280006',
+                   email: 'meu_email@outlook.com',
+                   birth_date: Date.strptime('23/12/1994', '%d/%m/%Y'),
+                   phone_number: FFaker::PhoneNumberBR.phone_number,
+                   status: rand(0..1)) do |municipe|
+    municipe.photo.attach(io: File.open(Rails.root.join('spec/fixtures/images/profiles/perfil-masculino-3.jpg').to_s), filename: 'foto-mulher-1.jpg')
+    municipe.build_address(cep: '25051-282',
+                           street: FFaker::AddressBR.street_name,
+                           complement: FFaker::AddressBR.secondary_address,
+                           neighborhood: FFaker::AddressBR.neighborhood,
+                           city: FFaker::AddressBR.city,
+                           state: FFaker::AddressBR.state_abbr,
+                           ibge_code: %w[2914703 3161403 1101005 3504206 3537156].sample)
+  end
+  # Municipe 7
+  Municipe.create!(full_name: FFaker::NameBR.first_name_male + " " + FFaker::NameBR.last_name,
+                   cpf: FFaker::IdentificationBR.cpf,
+                   cns: '744385696610009',
+                   email: 'ana_software@gmail.com',
+                   birth_date: Date.strptime('31/05/1990', '%d/%m/%Y'),
+                   phone_number: FFaker::PhoneNumberBR.phone_number,
+                   status: rand(0..1)) do |municipe|
+    municipe.photo.attach(io: File.open(Rails.root.join('spec/fixtures/images/profiles/perfil-feminino-1.jpg').to_s), filename: 'foto-mulher-1.jpg')
+    municipe.build_address(cep: '26564-070',
+                           street: FFaker::AddressBR.street_name,
+                           complement: FFaker::AddressBR.secondary_address,
+                           neighborhood: FFaker::AddressBR.neighborhood,
+                           city: FFaker::AddressBR.city,
+                           state: FFaker::AddressBR.state_abbr,
+                           ibge_code: %w[2914703 3161403 1101005 3504206 3537156].sample)
+  end
+  # Municipe 8
+  Municipe.create!(full_name: FFaker::NameBR.first_name_male + " " + FFaker::NameBR.last_name,
+                   cpf: FFaker::IdentificationBR.cpf,
+                   cns: '237037725590007',
+                   email: 'igor_monteiro@gmail.com',
+                   birth_date: Date.strptime('03/10/1991', '%d/%m/%Y'),
+                   phone_number: FFaker::PhoneNumberBR.phone_number,
+                   status: rand(0..1)) do |municipe|
+    municipe.photo.attach(io: File.open(Rails.root.join('spec/fixtures/images/profiles/perfil-feminino-3.jpg').to_s), filename: 'foto-mulher-1.jpg')
+    municipe.build_address(cep: '23893-765',
+                           street: FFaker::AddressBR.street_name,
+                           complement: FFaker::AddressBR.secondary_address,
+                           neighborhood: FFaker::AddressBR.neighborhood,
+                           city: FFaker::AddressBR.city,
+                           state: FFaker::AddressBR.state_abbr,
+                           ibge_code: %w[2914703 3161403 1101005 3504206 3537156].sample)
+  end
 end

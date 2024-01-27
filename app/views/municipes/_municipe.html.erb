@@ -1,15 +1,24 @@
-<tr id="<%= dom_id municipe %>" class="<%= cycle('bg-gray-100', 'bg-gray-200') %>">
-  <td class="py-2 px-4 border-b"><%= image_tag municipe.photo, class: 'w-fit object-contain' if municipe.photo.attached? %></td>
-  <td class="py-2 px-4 border-b"><%= municipe.full_name %></td>
-  <td class="py-2 px-4 border-b"><%= municipe.cpf %></td>
-  <td class="py-2 px-4 border-b"><%= municipe.cns %></td>
-  <td class="py-2 px-4 border-b"><%= municipe.address.state %></td>
-  <td class="py-2 px-4 border-b"><%= municipe.address.city %></td>
-  <td class="py-2 px-4 border-b"><%= phone_formatter(municipe.phone_number) %></td>
-  <td class="py-2 px-4 border-b"><%= t("activerecord.attributes.municipe.status.#{municipe.status}") %></td>
-  <td class="py-2 px-4 border-b">
-    <%= link_to t('.show'), municipe, class: 'hover:underline' %>
-    <%= link_to t('.edit'), edit_municipe_path(municipe), class: 'hover:underline' %>
-    <%= button_to t('.toggle_status'), toggle_status_municipe_path(municipe), method: :patch, data: { turbo_action: 'replace', turbo_confirm: t('.toggle_confirm') }, class: 'hover:underline' %>
+<tr id="<%= dom_id municipe %>" class="bg-gray-100 hover:bg-white">
+  <td class="px-5 py-2 border-b">
+    <%= image_tag municipe.photo, class: 'w-full h-20 object-contain mx-auto' if municipe.photo.attached? %>
+  </td>
+  <td class="px-5 py-2 border-b"><%= municipe.full_name %></td>
+  <td class="px-5 py-2 border-b"><%= municipe.cpf %></td>
+  <td class="px-5 py-2 border-b"><%= municipe.cns %></td>
+  <td class="px-5 py-2 border-b"><%= municipe.address.state %></td>
+  <td class="px-5 py-2 border-b"><%= municipe.address.city %></td>
+  <td class="px-5 py-2 border-b"><%= phone_formatter(municipe.phone_number) %></td>
+  <td class="px-5 py-2 border-b">
+    <% status_color_class = municipe.inactive? ? 'bg-red-500' : 'bg-blue-500' %>
+    <span class="inline-block py-1 px-2 rounded text-white text-center text-xs font-semibold <%= status_color_class %> w-16">
+    <%= t("activerecord.attributes.municipe.status.#{municipe.status}") %>
+  </span>
+  </td>
+
+
+  <td class="px-5 py-2 border-b">
+    <%= link_to t('.show'), municipe, class: 'text-blue-500 hover:underline mr-2' %>
+    <%= link_to t('.edit'), edit_municipe_path(municipe), class: 'text-green-500 hover:underline mr-2' %>
+    <%= button_to t('.toggle_status'), toggle_status_municipe_path(municipe), method: :patch, data: { turbo_action: 'replace', turbo_confirm: t('.toggle_confirm') }, class: 'text-orange-500 hover:underline' %>
   </td>
 </tr>
