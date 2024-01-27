@@ -20,7 +20,7 @@ pt-BR:
       prohibited:
         one: 'impediu'
         other: 'impediram'
-      body: 'as informações desse cidadão serem salvas.'
+      body: 'as informações de serem salvas.'
     attributes:
       municipe:
         photo: 'Foto'
