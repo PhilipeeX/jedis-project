@@ -3,16 +3,18 @@
       <div class="bg-white rounded-lg shadow-lg p-4 px-4 mb-6 md:px-12">
         <div class="flex gap-6 gap-y-2 sm:text-sm md:text-base">
           <div class="flex flex-col gap-3 w-1/2">
-            <p class="font-medium text-lg text-gray-600">Informações pessoais</p>
-            <div class="w-full">
-              <% if municipe.photo.attached? %>
-                <%= form.label :photo %>
-                <%= image_tag(municipe.photo, class: 'object-cover border rounded-xl') %>
-                <%= form.file_field :photo %>
-              <% else %>
-                <%= form.label :photo %>
-                <%= form.file_field :photo %>
-              <% end %>
+            <p class="font-medium text-lg text-gray-600"><%= t('.personal_info') %></p>
+            <div class="w-full flex flex-col">
+              <%= form.label :photo %>
+              <%= form.file_field :photo, id: 'photo-input', class: 'hidden', onchange: 'displayImage(this)' %>
+              <label for="photo-input" class="flex flex-col justify-center items-start cursor-pointer">
+                <% if municipe.photo.attached? %>
+                  <%= image_tag(municipe.photo, class: 'object-cover border rounded-xl w-full h-full', id: 'photo-preview') %>
+                <% else %>
+                  <div id="photo-preview" class="hidden"></div>
+                  <span class="cursor-pointer bg-gray-200 rounded text-center p-1"><%= t('.click_img') %></span>
+                <% end %>
+              </label>
             </div>
 
             <div>
@@ -69,7 +71,7 @@
           </div>
           <%= form.fields_for :address do |address_form| %>
             <div class="flex flex-col gap-4 sm:text-sm md:text-base w-1/2">
-              <p class="font-medium text-lg text-gray-600">Informações de endereço</p>
+              <p class="font-medium text-lg text-gray-600"><%= t('.address_info') %></p>
               <div>
                 <%= address_form.label :street %>
                 <%= address_form.text_field :street, class: "h-10 border mt-1 rounded px-4 w-full bg-gray-50 #{error_class(municipe.address, :street)}" %>
@@ -120,6 +122,20 @@
 </div>
 
 <script type="text/javascript">
+    function displayImage(input) {
+        var preview = document.getElementById('photo-preview');
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                preview.innerHTML = '<img src="' + e.target.result + '" class="object-cover border rounded-xl w-52 h-52" />';
+                preview.classList.remove('hidden');
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
     function generateCNS() {
         var cnsField = document.getElementById('municipe_cns');
 
