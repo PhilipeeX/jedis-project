@@ -28,6 +28,7 @@ pt-BR:
       back: 'Voltar para cidadãos'
       toggle_status: 'Alterar status'
       status: 'Status'
+      edit: 'Editar'
     form:
       save: 'Salvar'
       turbo_submit: 'Salvando...'
