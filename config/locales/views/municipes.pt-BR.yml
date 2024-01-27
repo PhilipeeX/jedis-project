@@ -32,3 +32,6 @@ pt-BR:
       save: 'Salvar'
       turbo_submit: 'Salvando...'
       generate_cns: 'Gerar CNS'
+      personal_info: 'Informações pessoais'
+      address_info: 'Informações de endereço'
+      click_img: 'Clique aqui e escolha uma imagem'
