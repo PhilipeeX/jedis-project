@@ -9,7 +9,8 @@
               <%= form.file_field :photo, id: 'photo-input', class: 'hidden', onchange: 'displayImage(this)' %>
               <label for="photo-input" class="flex flex-col justify-center items-start cursor-pointer">
                 <% if municipe.photo.attached? %>
-                  <%= image_tag(municipe.photo, class: 'object-cover border rounded-xl w-full h-full', id: 'photo-preview') %>
+                  <%= image_tag(municipe.photo, class: 'object-cover border rounded-xl w-52 h-52', id: 'photo-preview') do %>
+                  <% end %>
                 <% else %>
                   <div id="photo-preview" class="hidden"></div>
                   <span class="cursor-pointer bg-gray-200 rounded text-center p-1"><%= t('.click_img') %></span>
