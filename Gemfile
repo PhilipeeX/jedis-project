@@ -7,6 +7,7 @@ gem 'bootsnap', require: false
 gem 'foreman', '~> 0.87.2'
 gem 'importmap-rails'
 gem 'jbuilder'
+gem 'kaminari', '~> 1.2', '>= 1.2.2'
 gem 'pg', '~> 1.1'
 gem 'phonelib'
 gem 'puma', '~> 5.0'
@@ -19,7 +20,6 @@ gem 'turbo-rails'
 gem 'twilio-ruby'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'validates-correios-cep'
-gem 'kaminari', '~> 1.2', '>= 1.2.2'
 
 group :development, :test do
   gem 'database_cleaner', '~> 2.0', '>= 2.0.2'

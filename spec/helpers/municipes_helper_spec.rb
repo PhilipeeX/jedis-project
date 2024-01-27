@@ -16,7 +16,7 @@ RSpec.describe MunicipesHelper, type: :helper do
   end
 
   describe '#error_class' do
-    let(:municipe) { double('Municipe', errors: errors) }
+    let(:municipe) { double('Municipe', errors:) }
     let(:errors) { double('Errors', include?: include_error) }
     let(:include_error) { false }
 
@@ -31,12 +31,13 @@ RSpec.describe MunicipesHelper, type: :helper do
   end
 
   describe '#error_message' do
-    let(:municipe) { double('Municipe', errors: errors) }
+    let(:municipe) { double('Municipe', errors:) }
     let(:errors) { double('Errors', include?: include_error, full_messages_for: ['Some error']) }
     let(:include_error) { true }
 
     it 'returns error message when error is present' do
-      expect(helper.error_message(municipe, :some_attribute)).to eq('<div class="text-red-500 text-sm">Some error</div>')
+      expect(helper.error_message(municipe,
+                                  :some_attribute)).to eq('<div class="text-red-500 text-sm">Some error</div>')
     end
 
     it 'returns nil when error is not present' do
