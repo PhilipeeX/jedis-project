@@ -4,7 +4,7 @@ class MunicipesController < ApplicationController
   def index
     @q = Municipe.ransack(params[:q])
     @q.sorts = 'full_name asc' if @q.sorts.empty?
-    @municipes = @q.result.includes(:address)
+    @municipes = @q.result.includes(:address).page(params[:page]).per(params[:per_page] || 6)
   end
 
   def show; end

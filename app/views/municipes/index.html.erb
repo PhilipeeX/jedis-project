@@ -1,21 +1,21 @@
 <div class="py-8">
   <div>
-    <h2 class="text-2xl font-semibold leading-tight">Cadastrados</h2>
+    <h2 class="text-2xl font-semibold leading-tight"><%= t('.title') %></h2>
   </div>
   <div class="flex justify-between items-center">
     <div class="my-2 flex sm:flex-row flex-col">
-      <!-- Seletor de quantidade de itens por página -->
-      <div class="relative">
-        <select class="appearance-none h-full rounded-l border block appearance-none w-full bg-white border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-          <option>5</option>
-          <option>10</option>
-          <option>20</option>
-        </select>
-      </div>
+      <%= search_form_for @q, url: municipes_path, method: 'get', class:'flex' do |f| %>
+        <div class="relative">
+          <select class="appearance-none h-full rounded-l border block appearance-none w-full bg-white border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="per_page" onchange="this.form.submit()">
+            <option value="5" <%= 'selected' if params[:per_page] == '5' %>>5</option>
+            <option value="10" <%= 'selected' if params[:per_page] == '10' %>>10</option>
+            <option value="20" <%= 'selected' if params[:per_page] == '20' %>>20</option>
+          </select>
+        </div>
 
-      <div class="group relative">
+        <div class="group relative">
         <button type="button" class="flex appearance-none h-full rounded-r border-t sm:rounded-r-none sm:border-r-0 border-r border-b block appearance-none w-full bg-white border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:border-l focus:border-r focus:bg-white focus:border-gray-500">
-          Filtrar
+          <%= t('.filter') %>
           <svg class="w-4 h-4 ml-2 -mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M10 12l-5-5h10l-5 5z" />
           </svg>
@@ -25,12 +25,12 @@
             <ul>
               <%= link_to municipes_path(q: (params[:q] ? params[:q].to_unsafe_h : {}).merge(status_eq: :active, status_not_eq: nil)), class: "hover:bg-gray-100" do %>
                 <li class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                  <%= 'Ativos' %>
+                  <%= t('.actives') %>
                 </li>
               <% end %>
               <%= link_to municipes_path(q: (params[:q] ? params[:q].to_unsafe_h : {}).merge(status_eq: nil, status_not_eq: :active)) do %>
                 <li class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                  <%= 'Inativos' %>
+                  <%= t('.inactives') %>
                 </li>
               <% end %>
             </ul>
@@ -38,7 +38,7 @@
         </div>
       </div>
 
-      <%= search_form_for @q, url: municipes_path, method: 'get', class:'flex' do |f| %>
+
         <div class="block relative h-full rounded-r rounded-l sm:rounded-l-none sm:border-l-0 border border-gray-400 border-b">
           <%= f.label t('.search_info'), class: 'hidden' %>
           <span class="h-full absolute inset-y-0 left-0 flex items-center pl-2">
@@ -52,7 +52,7 @@
           <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
           </svg>
-          <span class="sr-only">Search</span>
+          <span class="sr-only"><%= t('.search') %></span>
         <% end %>
 
       <% end %>
@@ -103,7 +103,6 @@
         <%= render @municipes %>
         </tbody>
       </table>
-      <!-- Paginação -->
       <div class="flex items-center justify-between mt-6">
         <a href="#" class="flex items-center px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 rtl:-scale-x-100">
