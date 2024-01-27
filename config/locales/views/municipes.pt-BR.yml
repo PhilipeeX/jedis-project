@@ -1,7 +1,10 @@
 pt-BR:
   municipes:
     index:
-      title: 'Cidadãos'
+      title: 'Cadastrados'
+      filter: 'Filtrar'
+      actives: 'Ativos'
+      inactives: 'Inativos'
       actions: 'Ações'
       add_municipe: 'Cadastrar cidadão'
       status: 'Status'
