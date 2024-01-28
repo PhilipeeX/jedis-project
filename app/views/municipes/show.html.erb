@@ -2,18 +2,27 @@
 <div class="h-full p-8">
   <div class="bg-white rounded-lg shadow-xl pb-8">
     <div class="w-full h-[250px]">
-      <%#=# TODO: Alterar imagem conforme status %>
-      <img src="https://vojislavd.com/ta-template-demo/assets/img/profile-background.jpg" class="w-full h-full rounded-tl-lg rounded-tr-lg">
+<!--      <img src="https://vojislavd.com/ta-template-demo/assets/img/profile-background.jpg" class="w-full h-full rounded-tl-lg rounded-tr-lg">-->
+    <%= image_tag 'unsplash_img.jpg', class: 'w-full h-full rounded-tl-lg rounded-tr-lg' %>
     </div>
+
     <div class="flex flex-col items-center -mt-20">
       <%= image_tag @municipe.photo, class: 'w-40 border-4 border-white rounded-full' if @municipe.photo.attached? %>
       <div class="flex items-center space-x-2 mt-2">
         <p class="text-2xl"><%= @municipe.full_name %></p>
-        <span class="bg-blue-500 rounded-full p-1" title="Verified">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="text-gray-100 h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                    </span>
+        <% if @municipe.status == 'active' %>
+          <span class="bg-blue-500 rounded-full p-1">
+            <svg xmlns="http://www.w3.org/2000/svg" class="text-gray-100 h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7"></path>
+            </svg>
+          </span>
+        <% else %>
+          <span class="bg-red-600 rounded-full p-1">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-gray-100">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 0 0 5.636 5.636m12.728 12.728A9 9 0 0 1 5.636 5.636m12.728 12.728L5.636 5.636" />
+            </svg>
+          </span>
+        <% end %>
       </div>
       <p class="text-gray-700"><%= @municipe.email %></p>
       <p class="text-sm text-gray-500"><%= @municipe.address.city %>, <%= @municipe.address.state %></p>
@@ -52,5 +61,9 @@
         </ul>
       </div>
     </div>
+  </div>
+  <div class="flex gap-2 justify-center">
+    <%= link_to t('.edit'), edit_municipe_path(@municipe), class: 'flex items-center justify-center h-10 border mt-1 rounded px-4 py-2 w-52 bg-gray-50 text-center text-gray-700 hover:bg-gray-200 transition duration-300 ease-in-out' %>
+    <%= link_to t('.back'), municipes_path, class: 'flex items-center h-10 border mt-1 rounded px-4 py-2 w-52 bg-gray-50 text-center text-gray-700 hover:bg-gray-200 transition duration-300 ease-in-out' %>
   </div>
 </div>

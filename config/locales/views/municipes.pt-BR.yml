@@ -1,14 +1,17 @@
 pt-BR:
   municipes:
     index:
-      title: 'Cidadãos'
+      title: 'Cadastrados'
+      filter: 'Filtrar'
+      actives: 'Ativos'
+      inactives: 'Inativos'
       actions: 'Ações'
       add_municipe: 'Cadastrar cidadão'
       status: 'Status'
       search_info: 'Informações pessoais ou de endereço'
       search: 'Pesquisar'
     edit:
-      title: 'Editando cidadão'
+      title: 'Editando'
       show: 'Mostrar'
       back: 'Voltar'
     municipe:
@@ -25,7 +28,11 @@ pt-BR:
       back: 'Voltar para cidadãos'
       toggle_status: 'Alterar status'
       status: 'Status'
+      edit: 'Editar'
     form:
       save: 'Salvar'
       turbo_submit: 'Salvando...'
       generate_cns: 'Gerar CNS'
+      personal_info: 'Informações pessoais'
+      address_info: 'Informações de endereço'
+      click_img: 'Clique aqui e escolha uma imagem'

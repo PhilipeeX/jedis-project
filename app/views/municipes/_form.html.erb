@@ -1,94 +1,122 @@
-<%= form_with(model: municipe, local: true, html: { multipart: true }) do |form| %>
+<div class="p-6 flex items-center justify-center">
+    <%= form_with(model: municipe, local: true, html: { multipart: true, class: '' }) do |form| %>
+      <div class="bg-white rounded-lg shadow-lg p-4 px-4 mb-6 md:px-12">
+        <div class="flex gap-6 gap-y-2 sm:text-sm md:text-base">
+          <div class="flex flex-col gap-3 w-1/2">
+            <p class="font-medium text-lg text-gray-600"><%= t('.personal_info') %></p>
+            <div class="w-full flex flex-col">
+              <%= form.label :photo %>
+              <% if municipe.photo.attached? %>
+                <%= image_tag(municipe.photo, class: 'object-cover border rounded-xl w-52 h-52') %>
+                <%= form.file_field :photo %>
+              <% else %>
+                <%= form.file_field :photo %>
+              <% end %>
+            </div>
 
-  <% if municipe.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= "#{pluralize(municipe.errors.count, t('activerecord.errors.header.one'), t('activerecord.errors.header.other'))} #{pluralize(municipe.errors.count, t('activerecord.errors.prohibited.one'), t('activerecord.errors.prohibited.other'))} #{t('activerecord.errors.body')}" %></h2>
-      <ul>
-        <% municipe.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="flex">
-    <div>
-      <div>
-        <%= form.label :photo, style: "display: block" %>
-        <%= form.file_field :photo %>
-      </div>
-      <div>
-        <%= form.label :full_name, style: "display: block" %>
-        <%= form.text_field :full_name %>
-      </div>
+            <div>
+              <%= form.label :full_name %>
+              <%= form.text_field :full_name, class: "h-10 border mt-1 rounded px-4 w-full bg-gray-50 #{error_class(municipe, :full_name)}" %>
+              <%= error_message(municipe, :full_name) %>
+            </div>
 
-      <div>
-        <%= form.label :cpf, style: "display: block" %>
-        <%= form.text_field :cpf, placeholder: 'Ex.:000.000.000-00', maxlength: 14 %>
-      </div>
+          <div>
+            <%= form.label :cpf %>
+            <%= form.text_field :cpf, placeholder: 'Ex.:000.000.000-00', maxlength: 14, class: "h-10 border mt-1 rounded px-4 w-full bg-gray-50 #{error_class(municipe, :cpf)}" %>
+            <%= error_message(municipe, :cpf) %>
+          </div>
 
-      <div>
-        <%= form.label :cns, style: "display: block" %>
-        <%= form.text_field :cns %>
-        <%= button_tag t('.generate_cns'), type: "button", onclick: "generateCNS()" %>
-      </div>
+          <div>
+            <%= form.label :cns %>
+            <div class="flex gap-3 items-center">
+              <%= form.text_field :cns, class: "h-10 border mt-1 rounded px-4 bg-gray-50 flex-2 #{error_class(municipe, :cns)}" %>
+              <%= button_tag t('.generate_cns'), type: "button", onclick: "generateCNS()", class: 'flex flex-2 gap-1 py-1 px-5 inline-flex items-center text-xs font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600' do %>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 flex-2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+                </svg>
+                <%= content_tag(:span, t('.generate_cns'), class: 'flex-3') %>
+              <% end %>
+            </div>
+            <%= error_message(municipe, :cns) %>
+          </div>
 
-      <div>
-        <%= form.label :email, style: "display: block" %>
-        <%= form.text_field :email, placeholder: 'Ex.:example@domain.com' %>
-      </div>
+          <div>
+            <%= form.label :email %>
+            <%= form.text_field :email, placeholder: 'Ex.:example@domain.com', class: "h-10 border mt-1 rounded px-4 w-full bg-gray-50 #{error_class(municipe, :email)}" %>
+            <%= error_message(municipe, :email) %>
+          </div>
 
-      <div>
-        <%= form.label :birth_date, style: "display: block" %>
-        <%= form.date_field :birth_date %>
-      </div>
+          <div class="flex gap-10">
+            <div class="flex flex-col flex-1">
+              <%= form.label :birth_date %>
+              <%= form.date_field :birth_date, class: "h-10 border mt-1 rounded px-4 bg-gray-50 #{error_class(municipe, :birth_date)}" %>
+              <%= error_message(municipe, :birth_date) %>
+            </div>
 
-      <div>
-        <%= form.label :phone_number, style: "display: block" %>
-        <%= form.text_field :phone_number, placeholder: 'Ex.:(21) 965045799',minlength: 11, maxlength: 11 %>
-      </div>
+            <div class="flex flex-col flex-1">
+              <%= form.label :status, 'Status' %>
+              <%= form.select :status, Municipe.statuses.keys.map { |s| [I18n.t("activerecord.attributes.municipe.status.#{s}"), s] }, {}, { class: "h-10 mt-1 appearance-none w-full bg-gray-50 border border-gray-200 text-gray-700 py-1 px-2 pr-8 rounded #{error_class(municipe, :status)}" } %>
+              <%= error_message(municipe, :status) %>
+            </div>
+          </div>
 
-      <div>
-        <%= form.label :status, 'Status', style: "display: block" %>
-        <%= form.select :status, Municipe.statuses.keys.map { |s| [I18n.t("activerecord.attributes.municipe.status.#{s}"), s] } %>
-      </div>
-    </div>
-    <div>
-      <%= form.fields_for :address do |address_form| %>
-        <div>
-          <%= address_form.label :cep, style: "display: block" %>
-          <%= address_form.text_field :cep, placeholder: 'Ex.:00000-000' %>
+          <div>
+            <%= form.label :phone_number %>
+            <%= form.text_field :phone_number, placeholder: 'Ex.:(21) 965045799', minlength: 11, maxlength: 11, class: "h-10 border mt-1 rounded px-4 w-full bg-gray-50 #{error_class(municipe, :phone_number)}" %>
+            <%= error_message(municipe, :phone_number) %>
+          </div>
+          </div>
+          <%= form.fields_for :address do |address_form| %>
+            <div class="flex flex-col gap-4 sm:text-sm md:text-base w-1/2">
+              <p class="font-medium text-lg text-gray-600"><%= t('.address_info') %></p>
+              <div>
+                <%= address_form.label :street %>
+                <%= address_form.text_field :street, class: "h-10 border mt-1 rounded px-4 w-full bg-gray-50 #{error_class(municipe.address, :street)}" %>
+                <%= error_message(municipe.address, :street) %>
+              </div>
+
+              <div>
+                <%= address_form.label :complement %>
+                <%= address_form.text_field :complement, class: 'h-10 border mt-1 rounded px-4 w-full bg-gray-50' %>
+              </div>
+
+              <div>
+                <%= address_form.label :neighborhood %>
+                <%= address_form.text_field :neighborhood, class: "h-10 border mt-1 rounded px-4 w-full bg-gray-50 #{error_class(municipe.address, :neighborhood)}" %>
+                <%= error_message(municipe.address, :neighborhood) %>
+              </div>
+
+              <div>
+                <%= address_form.label :city %>
+                <%= address_form.text_field :city, class: "h-10 border mt-1 rounded px-4 w-full bg-gray-50 #{error_class(municipe.address, :city)}" %>
+                <%= error_message(municipe.address, :city) %>
+              </div>
+
+              <div>
+                <%= address_form.label :state %>
+                <%= address_form.text_field :state, class: "h-10 border mt-1 rounded px-4 w-full bg-gray-50 #{error_class(municipe.address, :state)}" %>
+                <%= error_message(municipe.address, :state) %>
+              </div>
+
+              <div>
+                <%= address_form.label :cep %>
+                <%= address_form.text_field :cep, placeholder: 'Ex.:00000-000', class: "h-10 border mt-1 rounded px-4 w-full bg-gray-50 #{error_class(municipe.address, :cep)}" %>
+                <%= error_message(municipe.address, :cep) %>
+              </div>
+
+              <div>
+                <%= address_form.label :ibge_code %>
+                <%= address_form.text_field :ibge_code, class: 'h-10 border mt-1 rounded px-4 w-full bg-gray-50' %>
+              </div>
+            </div>
+          <% end %>
         </div>
         <div>
-          <%= address_form.label :street, style: "display: block" %>
-          <%= address_form.text_field :street %>
+          <%= form.submit t('.save'), data: {turbo_submits_with: t('.turbo_submit')}, class: 'h-10 border mt-1 rounded px-4 w-full bg-gray-50' %>
         </div>
-        <div>
-          <%= address_form.label :complement, style: "display: block" %>
-          <%= address_form.text_field :complement %>
-        </div>
-        <div>
-          <%= address_form.label :neighborhood, style: "display: block" %>
-          <%= address_form.text_field :neighborhood %>
-        </div>
-        <div>
-          <%= address_form.label :city, style: "display: block" %>
-          <%= address_form.text_field :city %>
-        </div>
-        <div>
-          <%= address_form.label :state, style: "display: block" %>
-          <%= address_form.text_field :state %>
-        </div>
-        <div>
-          <%= address_form.label :ibge_code, style: "display: block" %>
-          <%= address_form.text_field :ibge_code %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-  <div>
-    <%= form.submit t('.save'), data: {turbo_submits_with: t('.turbo_submit')} %>
-  </div>
-<% end %>
+      </div>
+    <% end %>
+</div>
 
 <script type="text/javascript">
     function generateCNS() {

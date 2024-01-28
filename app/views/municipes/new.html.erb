@@ -1,11 +1,9 @@
-<div class="flex flex-col items-center w-full max-w-lg p-4">
-  <h1><%= t('.title') %></h1>
+<div class="min-h-screen min-w-full p-6 flex flex-col items-center justify-center">
+  <h1 class="font-medium text-lg text-gray-600"><%= t('.title') %></h1>
 
   <%= render "form", municipe: @municipe %>
 
-  <br>
-
-  <div>
-    <%= link_to t('.back'), municipes_path %>
+  <div class="flex gap-2">
+    <%= link_to t('.back'), municipes_path, class: 'flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50 text-center text-gray-700 hover:bg-gray-200 transition duration-300 ease-in-out' %>
   </div>
 </div>
