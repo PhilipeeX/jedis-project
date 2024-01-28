@@ -22,6 +22,8 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'validates-correios-cep'
 
 group :development, :test do
+  gem 'brakeman'
+  gem 'bundler-audit'
   gem 'database_cleaner', '~> 2.0', '>= 2.0.2'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot', '~> 6.4', '>= 6.4.5'
