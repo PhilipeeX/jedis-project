@@ -13,6 +13,8 @@ module JedisProject
 
     # Load validators for form fields
     config.autoload_paths += %W(#{config.root}/app/validators)
+    # Load services
+    config.autoload_paths += %W(#{config.root}/app/services)
 
     # Configuration for the application, engines, and railties goes here.
     #

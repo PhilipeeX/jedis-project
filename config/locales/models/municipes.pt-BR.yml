@@ -4,6 +4,9 @@ pt-BR:
       municipe:
         one: 'Cidadão'
         other: 'Cidadãos'
+      address:
+        one: 'Endereço'
+        other: 'Endereços'
     errors:
       models:
         municipe:
@@ -17,7 +20,7 @@ pt-BR:
       prohibited:
         one: 'impediu'
         other: 'impediram'
-      body: 'as informações desse cidadão serem salvas.'
+      body: 'as informações de serem salvas.'
     attributes:
       municipe:
         photo: 'Foto'
@@ -33,3 +36,11 @@ pt-BR:
           inactive: 'Inativo'
         created_at: 'Criado em'
         updated_at: 'Atualizado em'
+      address:
+        cep: 'CEP'
+        street: 'Rua'
+        complement: 'Complemento'
+        neighborhood: 'Bairro'
+        city: 'Cidade'
+        state: 'UF'
+        ibge_code: 'Código IBGE'

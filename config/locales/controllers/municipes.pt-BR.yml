@@ -2,3 +2,6 @@ pt-BR:
   municipes:
     create: 'Cidadão cadastrado com sucesso.'
     update: 'Cidadão atualizado com sucesso.'
+    toggle_status:
+      success: 'Status alterado com sucesso'
+      failure: 'Status não pôde ser alterado'
