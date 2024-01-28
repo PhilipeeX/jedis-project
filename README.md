@@ -19,6 +19,11 @@
 **Back-end:** Ruby 3.1.2, Rails 7.0.8
 
 **Database:** PostgreSQL
+
+## Acesso à aplicação em deploy através do link abaixo
+https://jedis-project.onrender.com
+> obs: É necessário aguardar alguns segundos até o carregamento da página porque é um serviço gratuito.
+
 ## Rodando localmente
 
 Clone o projeto
