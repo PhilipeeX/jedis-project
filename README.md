@@ -82,7 +82,7 @@ Para rodar os testes, rode o seguinte comando
 > - [x] CPF, CNS,Email devem ser válidos;
 > - [x] Tenha atenção a data de nascimento. Valide os casos impossíveis/improváveis de serem válidos;
 > - [x] Foto do munícipe deve ser tamanhos diferentes para servir vários casos.<br>
-> [Issue relacionada](https://github.com/PhilipeeX/jedis-project/issues/3)
+> [Pull Request](https://github.com/PhilipeeX/jedis-project/pull/8)
 #
 > [!TIP]
 > - [x] Ter a entidade relacional chamada enderenço com Campos: CEP, Logradouro, complemento, bairro, cidade, UF e código IBGE;
@@ -93,7 +93,7 @@ Para rodar os testes, rode o seguinte comando
 > - [x] Após criar/atualizar um munícipe, você deve mandar um Email e sms ao mesmo informando
 > sobre o cadastro de suas informações e quando o seu status sofrer alteração;
 > - [x] Filtrar municipes por dados dele e/ou de endereço. É livre a escolha do que deve ser feito.<br>
->  [Issue relacionada](https://github.com/PhilipeeX/jedis-project/issues/16)
+>  [Pull Request release v0.2](https://github.com/PhilipeeX/jedis-project/pull/26)
 
 ## Aprendizados
 
